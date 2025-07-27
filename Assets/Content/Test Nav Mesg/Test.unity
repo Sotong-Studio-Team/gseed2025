@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 169764406}
   - component: {fileID: 169764405}
   - component: {fileID: 169764410}
+  - component: {fileID: 169764411}
   m_Layer: 0
   m_Name: NavMesh
   m_TagString: Untagged
@@ -242,6 +243,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _collectSourcesCache2d: {fileID: 169764405}
   _navigationSurface: {fileID: 169764408}
+--- !u!114 &169764411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169764404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4336ab896d1920746a7acb11c68610e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetArray: []
+  _grid:
+    _gridSize: {x: 3, y: 3}
+    _activeCells: []
 --- !u!1 &507967422
 GameObject:
   m_ObjectHideFlags: 0

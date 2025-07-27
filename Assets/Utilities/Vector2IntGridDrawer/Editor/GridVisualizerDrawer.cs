@@ -77,7 +77,7 @@ public class GridVisualizerDrawer : PropertyDrawer
 
                 // Draw cell
                 bool isActive = grid.GetActiveCells().Contains(cellPos);
-                EditorGUI.DrawRect(cellRect, isActive ? Color.green : Color.white);
+                EditorGUI.DrawRect(cellRect, isActive ? Color.black : Color.white);
                 GUI.Box(cellRect, "");
 
                 // Draw origin
