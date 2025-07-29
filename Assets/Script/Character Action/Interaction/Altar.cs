@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class Altar : Interactable
+public class Altar : MonoBehaviour, IInteractable
 {
-    public override void Interact()
+    public void Interact()
     {
         Debug.Log("Altar accessed");
     }

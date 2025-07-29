@@ -3,7 +3,7 @@ using UnityEngine;
 public class PlayerInteraction : MonoBehaviour
 {
     private Collider2D _collider;
-    private Interactable _interactable;
+    private IInteractable _interactable;
 
     private void Awake()
     {
@@ -20,15 +20,15 @@ public class PlayerInteraction : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.TryGetComponent(out Interactable interactable))
+        if(collision.TryGetComponent(out IInteractable interactable))
         {
-            _interactable = collision.GetComponent<Interactable>();
+            _interactable = collision.GetComponent<IInteractable>();
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.TryGetComponent(out Interactable interactable) && _interactable == interactable)
+        if (collision.TryGetComponent(out IInteractable interactable) && _interactable == interactable)
         {
             _interactable = null;
         }
