@@ -10,10 +10,13 @@ namespace SotongStudio.Bomber.Gameplay.DungeonGeneration
     public class DungeonGenerationLogic : IDngeonGenerationLogic
     {
         private readonly IDungeonGenerationView _view;
+        private readonly IDungeonObjectConfigCollection _dungeonObjectConfigCollection;
 
-        public DungeonGenerationLogic(IDungeonGenerationView view)
+        public DungeonGenerationLogic(IDungeonGenerationView view,
+                                      IDungeonObjectConfigCollection dungeonObjectConfigCollection)
         {
             _view = view;
+            _dungeonObjectConfigCollection = dungeonObjectConfigCollection;
         }
 
         public void GenerateDugeonObject(IDugeonGeneratedData generationData)
@@ -28,7 +31,7 @@ namespace SotongStudio.Bomber.Gameplay.DungeonGeneration
 
             foreach (var dungeonObject in generationData.GeneratedObjects)
             {
-                AddObject(dungeonObject.Coordinate, dungeonObject.IsCovered);
+                AddObject(dungeonObject);
             }
         }
 
@@ -38,9 +41,15 @@ namespace SotongStudio.Bomber.Gameplay.DungeonGeneration
             block.name = $"{clusterId}";
             block.transform.position = (Vector2)blockArea;
         }
-        private void AddObject(Vector2Int coordinate, bool isCovered)
+        private void AddObject(IGeneratedObjectData objectData)
         {
-            var block = Object.Instantiate(isCovered ? _view.DungeonObject : _view.CoverObject);
+            var isCovered = objectData.IsCovered;
+            var coordinate = objectData.Coordinate;
+
+            var config = _dungeonObjectConfigCollection.GetItem(objectData.ObjectId);
+            var objPrefab = config.ObjectPrefab;
+
+            var block = Object.Instantiate(objPrefab);
             block.transform.position = (Vector2)coordinate;
         }
 

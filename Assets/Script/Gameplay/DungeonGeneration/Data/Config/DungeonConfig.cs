@@ -37,7 +37,7 @@ namespace SotongStudio.Bomber.Gameplay.DungeonGeneration.Data
             return new DungeonConfig(dungeonConfigSO.OtherPortalSpawnRate,
                                      dungeonConfigSO.EnemySpawnRate,
                                      dungeonConfigSO.CoinSpawnRate,
-                                     dungeonConfigSO.EnemySpawnRate);
+                                     dungeonConfigSO.EmptySpawnRate);
         }
     }
 }

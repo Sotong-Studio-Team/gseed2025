@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectId: DUN-OBJ-POR-LEVEL
   _objectCoverRate: 100
+  _objectPrefab: {fileID: 7201122331018779530, guid: a2bf0939e302ddf4692decce8565a3e7, type: 3}

@@ -190,9 +190,8 @@ namespace SotongStudio.Bomber.Gameplay.DungeonGeneration.Service
                     return GenerateEnemy(enemySpawnRate, selectedCoordinate);
 
                 default:
-                    //TODO : Need better reference Empty Object
-                    var emptyObjId = "DUN-OBJ-EMPTY";
-                    return new GeneratedObjectData(emptyObjId, GetCoveredStatus(emptyObjId), selectedCoordinate);
+                    var dunObjId = selectedObj.DungeonObjectId;
+                    return new GeneratedObjectData(dunObjId, GetCoveredStatus(dunObjId), selectedCoordinate);
 
 
             }
