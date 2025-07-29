@@ -1,7 +1,6 @@
 #if UNITY_EDITOR
 using UnityEditor;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 [CustomPropertyDrawer(typeof(GridVisualizer))]
 public class GridVisualizerDrawer : PropertyDrawer
@@ -38,7 +37,7 @@ public class GridVisualizerDrawer : PropertyDrawer
             grid.GridSize.x * (CELL_SIZE + PADDING) + PADDING,
             grid.GridSize.y * (CELL_SIZE + PADDING) + PADDING
         );
-        DrawGrid(gridRect, grid);
+        DrawGrid(gridRect, grid, property);
         yPos += gridRect.height + PADDING;
 
         // 5. Update Button
@@ -51,7 +50,7 @@ public class GridVisualizerDrawer : PropertyDrawer
         EditorGUI.EndProperty();
     }
 
-    private void DrawGrid(Rect gridRect, GridVisualizer grid)
+    private void DrawGrid(Rect gridRect, GridVisualizer grid, SerializedProperty property)
     {
         EditorGUI.DrawRect(gridRect, new Color(0.1f, 0.1f, 0.1f, 0.2f));
 
@@ -95,7 +94,7 @@ public class GridVisualizerDrawer : PropertyDrawer
                     GUI.changed = true;
                     Event.current.Use();
 
-                    //grid.;
+                    EditorUtility.SetDirty(property.serializedObject.targetObject);
                 }
             }
         }
