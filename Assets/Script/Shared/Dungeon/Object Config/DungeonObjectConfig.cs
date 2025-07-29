@@ -1,3 +1,4 @@
+using SotongStudio.Bomber.Gameplay.DungeonObject;
 using SotongStudio.SharedData.PredefinedData;
 using UnityEngine;
 
@@ -6,9 +7,9 @@ namespace SotongStudio.Bomber
     public interface IDungeonObjectConfig : IPredefinedItem
     {
         public ushort ObjectCoverChance { get; }
-        GameObject ObjectPrefab { get; }
+        DungeonObject ObjectPrefab { get; }
     }
-    [CreateAssetMenu(menuName ="Config/Dungeon Object", fileName ="DUN-OBJ-000")]
+    [CreateAssetMenu(menuName = "Config/Dungeon Object", fileName = "DUN-OBJ-000")]
     public class DungeonObjectConfig : ScriptableObject, IDungeonObjectConfig
     {
         [SerializeField]
@@ -16,11 +17,11 @@ namespace SotongStudio.Bomber
         [SerializeField]
         private ushort _objectCoverRate;
         [SerializeField]
-        private GameObject _objectPrefab;
+        private DungeonObject _objectPrefab;
 
         public string ItemId => _objectId;
         public ushort ObjectCoverChance => _objectCoverRate;
-        public GameObject ObjectPrefab => _objectPrefab;
+        public DungeonObject ObjectPrefab => _objectPrefab;
 
     }
 }

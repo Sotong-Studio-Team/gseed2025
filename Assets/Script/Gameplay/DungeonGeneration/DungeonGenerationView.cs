@@ -1,3 +1,5 @@
+using NavMeshPlus.Components;
+using SotongStudio.Bomber.Gameplay.DungeonObject;
 using UnityEngine;
 
 namespace SotongStudio.Bomber
@@ -5,9 +7,12 @@ namespace SotongStudio.Bomber
     public interface IDungeonGenerationView
     {
         Transform[] ClusterSlots { get; }
-        
-        GameObject BlockTile { get; }
-        GameObject CoverObject { get; }
+
+        DungeonObject HardWall { get; }
+        DungeonObject SoftWall { get; }
+        Transform ObjectContainer { get; }
+
+        NavMeshSurface NavigationSurface { get; }
     }
     public class DungeonGenerationView : MonoBehaviour, IDungeonGenerationView
     {
@@ -15,12 +20,21 @@ namespace SotongStudio.Bomber
         private Transform[] _clusterSlots;
         
         [SerializeField]
-        private GameObject _blockArea;
+        private DungeonObject _blockArea;
         [SerializeField]
-        private GameObject _coverObject;
+        private DungeonObject _coverObject;
+        [SerializeField]
+        private Transform _objectContainer;
 
-        public GameObject BlockTile => _blockArea;
+        [SerializeField]
+        private NavMeshSurface _navigationSurface;
+
         public Transform[] ClusterSlots => _clusterSlots;
-        public GameObject CoverObject => _coverObject;
+
+        public DungeonObject HardWall => _blockArea;
+        public DungeonObject SoftWall => _coverObject;
+        public Transform ObjectContainer => _objectContainer;
+
+        public NavMeshSurface NavigationSurface => _navigationSurface;
     }
 }

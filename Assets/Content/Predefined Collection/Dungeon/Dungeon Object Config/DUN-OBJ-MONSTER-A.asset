@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _objectId: DUN-OBJ-MONSTER-A
   _objectCoverRate: 30
-  _objectPrefab: {fileID: 9061194588409803174, guid: cefd452b0ce3cfc43984946dc10a2e4d, type: 3}
+  _objectPrefab: {fileID: 7059802058105538837, guid: cefd452b0ce3cfc43984946dc10a2e4d, type: 3}

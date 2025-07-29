@@ -30,6 +30,7 @@ namespace SotongStudio.Bomber.Gameplay.DungeonGeneration.Service
         {
             var dungeonData = GenerateDungeonData(dungeonConfig);
             _generationLogic.GenerateDugeonObject(dungeonData);
+            _generationLogic.UpdateNavigationSurface();
         }
         private IDugeonGeneratedData GenerateDungeonData(IDungeonConfig dungeonConfig)
         {

@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5530162159990652740}
   - component: {fileID: 4292968631564918892}
+  - component: {fileID: 1665066805709217172}
   m_Layer: 0
-  m_Name: Monster A
+  m_Name: Monster B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +78,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0.016392907, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.5255168, b: 0.4764151, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -87,3 +88,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1665066805709217172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9061194588409803174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79e0460bbe6d93a40aced688a0f8f9f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
