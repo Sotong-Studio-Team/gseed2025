@@ -1,30 +1,41 @@
+using UnityEngine;
+
 namespace SotongStudio.Bomber.Gameplay.Character.DataService
 {
     public interface ICharacterGameplayUpdateService
     {
         void SetupCharacterStat(CharacterStatGameplay characterStat);
-        public void ReducePlayerHealth(int amount);
-        public void AddPlayerHealth(int amount);
 
-        public void ReducePlayerSpeed(int amount);
-        public void AddPlayerSpeed(int amount);
+        void AddPlayerHealth(int amount);
+        void ReducePlayerHealth(int amount);
+
+        void AddPlayerMaxHealth(int amount);
+        void ReducePlayerMaxHealth(int amount);
+
+        void AddPlayerSpeed(int amount);
+        void ReducePlayerSpeed(int amount);
     }
     public interface ICharacterGameplayDataService
     {
-        public int GetPlayerCurrentHealth();
-        public int GetPlayerSpeed();
+        int GetCharacterMaxHealth();
+        int GetCharacterCurrentHealth();
+        int GetCharacterSpeed();
 
     }
     public class CharacterGameplayDataService : ICharacterGameplayDataService, ICharacterGameplayUpdateService
     {
-       
+
         private CharacterStatGameplay _characterStat;
 
-        public int GetPlayerCurrentHealth()
+        public int GetCharacterCurrentHealth()
         {
             return _characterStat.Health;
         }
-        public int GetPlayerSpeed()
+        public int GetCharacterMaxHealth()
+        {
+            return _characterStat.MaxHealth;
+        }
+        public int GetCharacterSpeed()
         {
             return _characterStat.Speed;
         }
@@ -33,21 +44,32 @@ namespace SotongStudio.Bomber.Gameplay.Character.DataService
         {
             _characterStat = characterStat;
         }
-        public void ReducePlayerHealth(int amount)
-        {
-            _characterStat.Health -= amount;
-        }
+
         public void AddPlayerHealth(int amount)
         {
             _characterStat.Health += amount;
         }
-        public void ReducePlayerSpeed(int amount)
+        public void ReducePlayerHealth(int amount)
         {
-            _characterStat.Speed -= amount;
+            _characterStat.Health -= amount;
         }
+
+        public void AddPlayerMaxHealth(int amount)
+        {
+            _characterStat.MaxHealth += amount;
+        }
+        public void ReducePlayerMaxHealth(int amount)
+        {
+            _characterStat.MaxHealth -= Mathf.Min(amount, ThresholdConfig.CharacterHealth);
+        }
+
         public void AddPlayerSpeed(int amount)
         {
             _characterStat.Speed += amount;
+        }
+        public void ReducePlayerSpeed(int amount)
+        {
+            _characterStat.Speed -= Mathf.Min(amount, ThresholdConfig.CharacterSpeed);
         }
 
     }

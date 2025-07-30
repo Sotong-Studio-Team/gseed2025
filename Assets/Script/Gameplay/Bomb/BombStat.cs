@@ -1,15 +1,8 @@
+using SotongStudio.Bomber.Shared.Bomb;
+
 namespace SotongStudio.Bomber.Gameplay.Bomb.Data
 {
-    public interface IBaseBombStat
-    {
-        int Damage { get; }
-        ushort ExplosionLength { get; }
-        float ExplosionDelay { get; }
-        float ExplosionDuration { get; }
-        float UseCooldown { get; }
-    }
-
-    public class BombStat: IBaseBombStat
+    public class BombStat : IBaseBombStat
     {
         public int Damage { get; set; }
         public ushort ExplosionLength { get; set; }
@@ -24,6 +17,14 @@ namespace SotongStudio.Bomber.Gameplay.Bomb.Data
             ExplosionDelay = explosionDelay;
             ExplosionDuration = explosionDuration;
             UseCooldown = useCooldown;
+        }
+        public BombStat(IBaseBombStat bombStat)
+        {
+            Damage = bombStat.Damage;
+            ExplosionLength = bombStat.ExplosionLength;
+            ExplosionDelay = bombStat.ExplosionDelay;
+            ExplosionDuration = bombStat.ExplosionDuration;
+            UseCooldown = bombStat.UseCooldown;
         }
     }
 }

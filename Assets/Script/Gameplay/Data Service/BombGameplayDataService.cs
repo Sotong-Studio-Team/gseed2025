@@ -3,37 +3,49 @@ using UnityEngine;
 
 namespace SotongStudio.Bomber.Gameplay.Bomb
 {
+    public interface IBombGameplayDataService
+    {
+        int GetBombDamage();
+        ushort GetBombRange();
+        float GetBombExplosionDelay();
+        float GetBombExplosionDuration();
+        float GetBombUseCooldown();
+    }
+
     public interface IBombGameplayUpdateService
     {
         void SetupBombStat(BombStat bombStat);
 
-        void ReduceBombDamage(int amount);
         void AddBombDamage(int amount);
-        void ReduceBombRange(ushort amount);
+        void ReduceBombDamage(int amount);
+
         void AddBombRange(ushort amount);
+        void ReduceBombRange(ushort amount);
     }
-    public class BombGameplayDataService : IBombGameplayUpdateService
+    public class BombGameplayDataService : IBombGameplayUpdateService, IBombGameplayDataService
     {
         private BombStat _bombStat;
         public void SetupBombStat(BombStat bombStat)
         {
             _bombStat = bombStat;
         }
-        public void ReduceBombDamage(int amount)
-        {
-            _bombStat.Damage -= amount;
-        }
+
         public void AddBombDamage(int amount)
         {
             _bombStat.Damage += amount;
         }
-        public void ReduceBombRange(ushort amount)
+        public void ReduceBombDamage(int amount)
         {
-            _bombStat.ExplosionLength -= amount;
+            _bombStat.Damage -= Mathf.Min(amount, ThresholdConfig.BombDamage);
         }
+
         public void AddBombRange(ushort amount)
         {
             _bombStat.ExplosionLength += amount;
+        }
+        public void ReduceBombRange(ushort amount)
+        {
+            _bombStat.ExplosionLength -= (ushort)Mathf.Min(amount, ThresholdConfig.ExplosionLength);
         }
 
         public int GetBombDamage()
@@ -58,3 +70,4 @@ namespace SotongStudio.Bomber.Gameplay.Bomb
         }
 
     }
+}
