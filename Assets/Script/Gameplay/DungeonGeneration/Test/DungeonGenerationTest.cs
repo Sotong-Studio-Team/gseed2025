@@ -29,7 +29,6 @@ namespace SotongStudio.Bomber
         {
             var config = DungeonConfig.CretaeDungeonData(_dungeonConfig);
             _genrateService.GenerateDungeon(config);
-            Debug.Break();
         }
 
         [Button]
