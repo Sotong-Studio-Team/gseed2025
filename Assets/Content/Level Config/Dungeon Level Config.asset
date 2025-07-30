@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c472cafc1f78b347aed3005c5d7ec19, type: 3}
+  m_Name: Dungeon Level Config
+  m_EditorClassIdentifier: 
+  OtherPortalSpawnRate:
+  - <DungeonObjectId>k__BackingField: DUN-OBJ-POR-ALTAR
+    <SpawnRate>k__BackingField: 100
+  - <DungeonObjectId>k__BackingField: DUN-OBJ-POR-MARKET
+    <SpawnRate>k__BackingField: 100
+  EnemySpawnRate:
+    <DungeonObjectId>k__BackingField: 
+    <SpawnRate>k__BackingField: 20
+    <EnemyUnits>k__BackingField:
+    - <EnemyUnitId>k__BackingField: DUN-OBJ-MONSTER-A
+      <SpawnRate>k__BackingField: 50
+    - <EnemyUnitId>k__BackingField: DUN-OBJ-MONSTER-B
+      <SpawnRate>k__BackingField: 50
+  CoinSpawnRate:
+    <DungeonObjectId>k__BackingField: DUN-OBJ-COIN
+    <SpawnRate>k__BackingField: 20
+  EmptySpawnRate:
+    <DungeonObjectId>k__BackingField: DUN-OBJ-EMPTY
+    <SpawnRate>k__BackingField: 60
