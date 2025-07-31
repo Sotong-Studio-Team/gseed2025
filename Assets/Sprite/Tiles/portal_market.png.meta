@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: cf6b6d4193491144d983cb1aff392f04
+guid: 0382c549c55c95a4592de913eaa3ada5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5578916500179772253
-    second: sidewall_map5_0
+      213: 8662287644667284675
+    second: portal_market_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sidewall_map5_0
+      name: portal_market_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 5100
-        height: 900
+        y: 1
+        width: 297
+        height: 298
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d53e7c0affa4c6d40800000000000000
-      internalID: 5578916500179772253
+      spriteID: 3cc06a2d7b0a63870800000000000000
+      internalID: 8662287644667284675
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      sidewall_map5_0: 5578916500179772253
+      portal_market_0: 8662287644667284675
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
