@@ -8,7 +8,7 @@ public class EnemyTemp : MonoBehaviour
     {
         if (collision.collider.TryGetComponent(out PlayerHitView player))
         {
-            player.Hit(_damage);
+            player.Damage(_damage);
         }
     }
 }
