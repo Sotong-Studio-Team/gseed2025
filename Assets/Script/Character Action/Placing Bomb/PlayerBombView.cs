@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerBombView : MonoBehaviour
 {
@@ -6,7 +8,10 @@ public class PlayerBombView : MonoBehaviour
 
     [SerializeField] private GameObject _bombPrefab;
     [SerializeField] private int _maxAmount= 1;
+    [SerializeField] private float _bombCooldown = 1.5f;
     private int _currentAmount;
+
+    public UnityEvent OnBombDeployed;
 
     private void Start()
     {
@@ -19,6 +24,7 @@ public class PlayerBombView : MonoBehaviour
         {
             _currentAmount--;
             PlaceBomb(transform.position);
+            StartCoroutine(BombCooldownCo());
         }
     }
 
@@ -26,5 +32,11 @@ public class PlayerBombView : MonoBehaviour
     {
         var finalPosition = _grid.GetNearestPointOnGrid(point);
         Instantiate(_bombPrefab, finalPosition, Quaternion.identity);
+    }
+
+    IEnumerator BombCooldownCo()
+    {
+        yield return new WaitForSeconds(_bombCooldown);
+        _currentAmount++;
     }
 }
