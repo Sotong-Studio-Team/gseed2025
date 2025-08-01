@@ -12,22 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c472cafc1f78b347aed3005c5d7ec19, type: 3}
   m_Name: Dungeon Level Config
   m_EditorClassIdentifier: 
-  OtherPortalSpawnRate:
+  _otherPortalSpawnRate:
   - <DungeonObjectId>k__BackingField: DUN-OBJ-POR-ALTAR
-    <SpawnRate>k__BackingField: 100
+    <SpawnRate>k__BackingField: 0
   - <DungeonObjectId>k__BackingField: DUN-OBJ-POR-MARKET
-    <SpawnRate>k__BackingField: 100
-  EnemySpawnRate:
-    <DungeonObjectId>k__BackingField: 
-    <SpawnRate>k__BackingField: 10
+    <SpawnRate>k__BackingField: 0
+  _enemySpawnRate:
+    <DungeonObjectId>k__BackingField: 'Enemy Spawn Rate [Ignore this ID]'
+    <SpawnRate>k__BackingField: 20
     <EnemyUnits>k__BackingField:
     - <EnemyUnitId>k__BackingField: DUN-OBJ-MONSTER-A
-      <SpawnRate>k__BackingField: 0
+      <SpawnRate>k__BackingField: 50
     - <EnemyUnitId>k__BackingField: DUN-OBJ-MONSTER-B
-      <SpawnRate>k__BackingField: 100
-  CoinSpawnRate:
+      <SpawnRate>k__BackingField: 50
+  _coinSpawnRate:
     <DungeonObjectId>k__BackingField: DUN-OBJ-COIN
-    <SpawnRate>k__BackingField: 0
-  EmptySpawnRate:
+    <SpawnRate>k__BackingField: 20
+  _emptySpawnRate:
     <DungeonObjectId>k__BackingField: DUN-OBJ-EMPTY
-    <SpawnRate>k__BackingField: 90
+    <SpawnRate>k__BackingField: 30
+  IncreaseSapawnEnemy: 30
+  IncreaseRateEnemy: 3
+  IncreaseSapawnCoin: 5
+  IncreaseRateCoin: 3
+  IncreaseSapawnEmpty: 5
+  IncreaseRateEmpty: 3

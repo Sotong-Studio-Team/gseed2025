@@ -5,8 +5,6 @@ using UnityEngine.Events;
 
 public class PlayerMovementView : MonoBehaviour
 {
-    public Action OnUpdate;
-
     private Rigidbody2D _rb;
     private Animator _animator;
     private SpriteRenderer _sprite;
@@ -16,11 +14,8 @@ public class PlayerMovementView : MonoBehaviour
         _rb = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _sprite = GetComponent<SpriteRenderer>();
-    }
 
-    private void Update()
-    {
-        OnUpdate?.Invoke();
+        AnimatePlayer(Vector2.down, Vector2.zero);
     }
 
     public void MovePlayer(float moveSpeed, Vector2 movement)

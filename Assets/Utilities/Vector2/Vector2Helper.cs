@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SotongStudio.Unlink.Utilities.Vector2Helper
+namespace SotongStudio.Utilities.Vector2Helper
 {
     public static class Vector2Helper
     {

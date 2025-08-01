@@ -5,7 +5,7 @@ using VContainer;
 
 namespace SotongStudio.Bomber
 {
-    public class PlayerGameplayInstaller : ScopeInstallHelper
+    public class DataServiceInstaller : ScopeInstallHelper
     {
         public override void Install(IContainerBuilder builder)
         {
