@@ -76,6 +76,10 @@ namespace SotongStudio.Bomber.Gameplay.DungeonGeneration
                 AddCoverStone(dunObj, coordinate);
                 dunObj.ShowAsCovered();
             }
+            else
+            {
+                obj.ShowUpProcess();
+            }
         }
 
         private void AddCoverStone(IDungeonObject dunObj, Vector2Int coordinate)
