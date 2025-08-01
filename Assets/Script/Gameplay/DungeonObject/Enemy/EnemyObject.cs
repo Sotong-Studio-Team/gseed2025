@@ -11,9 +11,5 @@ namespace SotongStudio.Bomber.Gameplay.DungeonObject.Enemy
             TakeExplosionDamageProcess(amount);
         }
 
-        public override void TakeExplosionDamageProcess(int damage)
-        {
-            // Calculate Damage
-        }
     }
 }
