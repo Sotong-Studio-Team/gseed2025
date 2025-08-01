@@ -3,6 +3,7 @@ using System.Linq;
 using SotongStudio.Bomber.Gameplay.DungeonGeneration.Data;
 using SotongStudio.Bomber.Shared.Dungeon.Cluster;
 using UnityEngine;
+using VContainer;
 
 namespace SotongStudio.Bomber.Gameplay.DungeonGeneration.Service
 {
