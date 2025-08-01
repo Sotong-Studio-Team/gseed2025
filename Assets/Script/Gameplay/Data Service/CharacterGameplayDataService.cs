@@ -14,12 +14,16 @@ namespace SotongStudio.Bomber.Gameplay.Character.DataService
 
         void AddPlayerSpeed(int amount);
         void ReducePlayerSpeed(int amount);
+        
+        void AddBombAmount(int amount);
+        void ReduceBombAmount(int amount);
     }
     public interface ICharacterGameplayDataService
     {
         int GetCharacterMaxHealth();
         int GetCharacterCurrentHealth();
         int GetCharacterSpeed();
+        int GetBombAmount();
 
     }
     public class CharacterGameplayDataService : ICharacterGameplayDataService, ICharacterGameplayUpdateService
@@ -38,6 +42,11 @@ namespace SotongStudio.Bomber.Gameplay.Character.DataService
         public int GetCharacterSpeed()
         {
             return _characterStat.Speed;
+        }
+
+        public int GetBombAmount()
+        {
+            return _characterStat.BombAmount;
         }
 
         public void SetupCharacterStat(CharacterStatGameplay characterStat)
@@ -70,6 +79,16 @@ namespace SotongStudio.Bomber.Gameplay.Character.DataService
         public void ReducePlayerSpeed(int amount)
         {
             _characterStat.Speed -= Mathf.Min(amount, ThresholdConfig.CharacterSpeed);
+        }
+
+        public void AddBombAmount(int amount)
+        {
+            _characterStat.BombAmount += amount;
+        }
+
+        public void ReduceBombAmount(int amount)
+        {
+            _characterStat.BombAmount -= Mathf.Min(amount, ThresholdConfig.CharacterSpeed);
         }
 
     }
