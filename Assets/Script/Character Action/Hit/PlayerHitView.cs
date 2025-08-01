@@ -1,8 +1,9 @@
+using SotongStudio.Bomber;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Android;
 
-public class PlayerHitView : MonoBehaviour
+public class PlayerHitView : MonoBehaviour, IDamageable
 {
     private SpriteRenderer _sprite;
     private Collider2D _collider;
@@ -22,17 +23,17 @@ public class PlayerHitView : MonoBehaviour
         _currentHP = _maxHP;
     }
 
-    public void Hit(int damage)
+    public void Damage(int amount)
     {
         if (_isInvincible)
         {
             return;
         }
 
-        _currentHP -= damage;
+        _currentHP -= amount;
         Debug.Log($"Player health = {_currentHP}/{_maxHP}");
 
-        if(_currentHP < 0)
+        if (_currentHP < 0)
         {
             Die();
         }
@@ -40,7 +41,6 @@ public class PlayerHitView : MonoBehaviour
         {
             StartCoroutine(InvincibleCo());
         }
-
     }
 
     private void Die()
