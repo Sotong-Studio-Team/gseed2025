@@ -1,0 +1,793 @@
+fileFormatVersion: 2
+guid: 9762085d2877d87458e3b30c5cc0bd87
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 745236887748516412
+    second: tabula_flavor_0
+  - first:
+      213: -5308271312956931758
+    second: tabula_flavor_1
+  - first:
+      213: -7898840242289195486
+    second: tabula_flavor_2
+  - first:
+      213: 9210427318379437068
+    second: tabula_flavor_3
+  - first:
+      213: 3789777604041508110
+    second: tabula_flavor_4
+  - first:
+      213: -4833466632881413572
+    second: tabula_flavor_5
+  - first:
+      213: 3971447266930833720
+    second: tabula_flavor_6
+  - first:
+      213: -3153884578035100623
+    second: tabula_flavor_7
+  - first:
+      213: 2005368084200323507
+    second: tabula_flavor_8
+  - first:
+      213: -4571313148211199413
+    second: tabula_flavor_9
+  - first:
+      213: 5429289241921759795
+    second: tabula_flavor_10
+  - first:
+      213: -8090857529707036817
+    second: tabula_flavor_11
+  - first:
+      213: -2827516065281247639
+    second: tabula_flavor_12
+  - first:
+      213: 3430132340176248144
+    second: tabula_flavor_13
+  - first:
+      213: -2583441639870889490
+    second: tabula_flavor_14
+  - first:
+      213: -3077018775918466962
+    second: tabula_flavor_15
+  - first:
+      213: -2318123749487949579
+    second: tabula_flavor_16
+  - first:
+      213: 1002089786678644877
+    second: tabula_flavor_17
+  - first:
+      213: -3734416049550751887
+    second: tabula_flavor_18
+  - first:
+      213: 5954980943256599523
+    second: tabula_flavor_19
+  - first:
+      213: 2534477472896664804
+    second: tabula_flavor_20
+  - first:
+      213: 7118486666340473945
+    second: tabula_flavor_21
+  - first:
+      213: 5751661725930834698
+    second: tabula_flavor_22
+  - first:
+      213: -2314056012376835702
+    second: tabula_flavor_23
+  - first:
+      213: 7044383782402363771
+    second: tabula_flavor_24
+  - first:
+      213: -1831789117625847184
+    second: tabula_flavor_25
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 300
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tabula_flavor_0
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 106
+        width: 24
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3a94cf300d975a00800000000000000
+      internalID: 745236887748516412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tabula_flavor_1
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 119
+        width: 27
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2514ec38d5b3556b0800000000000000
+      internalID: -5308271312956931758
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tabula_flavor_2
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 88
+        width: 78
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 226cac446aea16290800000000000000
+      internalID: -7898840242289195486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tabula_flavor_3
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 89
+        width: 41
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0c5f8dd8d202df70800000000000000
+      internalID: 9210427318379437068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tabula_flavor_4
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 127
+        width: 18
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0500aad6aef79430800000000000000
+      internalID: 3789777604041508110
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tabula_flavor_5
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 86
+        width: 57
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c326669c4b31cecb0800000000000000
+      internalID: -4833466632881413572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tabula_flavor_6
+      rect:
+        serializedVersion: 2
+        x: 347
+        y: 88
+        width: 36
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 839bb956f3a6d1730800000000000000
+      internalID: 3971447266930833720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tabula_flavor_7
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 84
+        width: 94
+        height: 59
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13492afafa62b34d0800000000000000
+      internalID: -3153884578035100623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tabula_flavor_8
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 120
+        width: 17
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3b97aaec5af74db10800000000000000
+      internalID: 2005368084200323507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tabula_flavor_9
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 79
+        width: 23
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b428ccb59ee6f80c0800000000000000
+      internalID: -4571313148211199413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tabula_flavor_10
+      rect:
+        serializedVersion: 2
+        x: 517
+        y: 26
+        width: 73
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33aa897ccc5b85b40800000000000000
+      internalID: 5429289241921759795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tabula_flavor_11
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 60
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6f7485a1ff77bf80800000000000000
+      internalID: -8090857529707036817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tabula_flavor_12
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 61
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96673349e15a2c8d0800000000000000
+      internalID: -2827516065281247639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tabula_flavor_13
+      rect:
+        serializedVersion: 2
+        x: 38
+        y: 27
+        width: 44
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05dd8c490374a9f20800000000000000
+      internalID: 3430132340176248144
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tabula_flavor_14
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 23
+        width: 42
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee10b852485c52cd0800000000000000
+      internalID: -2583441639870889490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tabula_flavor_15
+      rect:
+        serializedVersion: 2
+        x: 132
+        y: 17
+        width: 24
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e682c2ed9bb3c45d0800000000000000
+      internalID: -3077018775918466962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tabula_flavor_16
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 18
+        width: 63
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f8cf565bbe54dfd0800000000000000
+      internalID: -2318123749487949579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tabula_flavor_17
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 23
+        width: 66
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8017080a5328ed00800000000000000
+      internalID: 1002089786678644877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tabula_flavor_18
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 30
+        width: 40
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17782038360bc2cc0800000000000000
+      internalID: -3734416049550751887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tabula_flavor_19
+      rect:
+        serializedVersion: 2
+        x: 335
+        y: 24
+        width: 36
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ebb707fd9754a250800000000000000
+      internalID: 5954980943256599523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tabula_flavor_20
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 22
+        width: 108
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e44c3755d54c2320800000000000000
+      internalID: 2534477472896664804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tabula_flavor_21
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 26
+        width: 33
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95c149d58e1f9c260800000000000000
+      internalID: 7118486666340473945
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tabula_flavor_22
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 3
+        width: 18
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0b415abdd102df40800000000000000
+      internalID: 5751661725930834698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tabula_flavor_23
+      rect:
+        serializedVersion: 2
+        x: 140
+        y: 7
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a89fbef2152d2efd0800000000000000
+      internalID: -2314056012376835702
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tabula_flavor_24
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 14
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b719d933abda2c160800000000000000
+      internalID: 7044383782402363771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tabula_flavor_25
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 14
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0723c74b08d2496e0800000000000000
+      internalID: -1831789117625847184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      tabula_flavor_0: 745236887748516412
+      tabula_flavor_1: -5308271312956931758
+      tabula_flavor_10: 5429289241921759795
+      tabula_flavor_11: -8090857529707036817
+      tabula_flavor_12: -2827516065281247639
+      tabula_flavor_13: 3430132340176248144
+      tabula_flavor_14: -2583441639870889490
+      tabula_flavor_15: -3077018775918466962
+      tabula_flavor_16: -2318123749487949579
+      tabula_flavor_17: 1002089786678644877
+      tabula_flavor_18: -3734416049550751887
+      tabula_flavor_19: 5954980943256599523
+      tabula_flavor_2: -7898840242289195486
+      tabula_flavor_20: 2534477472896664804
+      tabula_flavor_21: 7118486666340473945
+      tabula_flavor_22: 5751661725930834698
+      tabula_flavor_23: -2314056012376835702
+      tabula_flavor_24: 7044383782402363771
+      tabula_flavor_25: -1831789117625847184
+      tabula_flavor_3: 9210427318379437068
+      tabula_flavor_4: 3789777604041508110
+      tabula_flavor_5: -4833466632881413572
+      tabula_flavor_6: 3971447266930833720
+      tabula_flavor_7: -3153884578035100623
+      tabula_flavor_8: 2005368084200323507
+      tabula_flavor_9: -4571313148211199413
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
