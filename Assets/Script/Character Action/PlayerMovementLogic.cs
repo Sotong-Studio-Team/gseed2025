@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using VContainer.Unity;
 
@@ -46,5 +45,10 @@ public class PlayerMovementLogic : IStartable
         {
             _view.FlipSprite(false);
         }
+    }
+
+    public void TeleportPlayer(Vector3 newPos)
+    {
+       _view.transform.position = newPos;
     }
 }

@@ -12,6 +12,7 @@ namespace SotongStudio.Bomber
 
         NavMeshSurface NavigationSurface { get; }
         Vector2 ZeroPosition { get; }
+        Vector3 PlayerStartPos { get; }
     }
     public class DungeonGenerationView : MonoBehaviour, IDungeonGenerationView
     {
@@ -26,6 +27,8 @@ namespace SotongStudio.Bomber
         private NavMeshSurface _navigationSurface;
         [SerializeField]
         private Transform _zeroPosition;
+        [SerializeField]
+        private Transform _playerStartPos;
 
         public DungeonObject HardWall => _blockArea;
         public DungeonObject SoftWall => _coverObject;
@@ -34,5 +37,6 @@ namespace SotongStudio.Bomber
         public NavMeshSurface NavigationSurface => _navigationSurface;
 
         public Vector2 ZeroPosition => _zeroPosition.position;
+        public Vector3 PlayerStartPos => _playerStartPos.position;
     }
 }

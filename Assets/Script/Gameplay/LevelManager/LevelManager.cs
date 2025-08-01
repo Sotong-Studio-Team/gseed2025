@@ -1,30 +1,50 @@
 using SotongStudio.Bomber.Gameplay.DungeonGeneration.Data;
 using SotongStudio.Bomber.Gameplay.DungeonGeneration.Service;
-using UnityEngine;
+using UnityEngine.Events;
 
 namespace SotongStudio.Bomber.Gameplay.LevelManager
 {
     public interface ILevelManager
     {
-        void StartLevel(int level);
+        void StartLevel();
+        UnityEvent<int> OnChangeLevel { get; }
     }
 
     public class LevelManager : ILevelManager
     {
         private readonly IDungeonGenerationService _generationService;
-        private readonly IDungeonConfig _startDungeonConfig;
+        private readonly LevelManagerData _levelManagerData;
+        private readonly PlayerMovementLogic _playerLogic;
+
+        public UnityEvent<int> OnChangeLevel { get; private set; } = new();
+        private int _currentLevel = 0;
+
 
         public LevelManager(IDungeonGenerationService generationService,
-                            LevelManagerData levelManagerData
+                            LevelManagerData levelManagerData,
+                            PlayerMovementLogic playerLogic
             )
         {
             _generationService = generationService;
-            _startDungeonConfig = DungeonConfig.CretaeDungeonData(levelManagerData.DungeonConfigSO);
+            _levelManagerData = levelManagerData;
+            _playerLogic = playerLogic;
         }
 
-        public void StartLevel(int level)
+        public void StartLevel()
         {
-            _generationService.GenerateDungeon(_startDungeonConfig);
+            _currentLevel++;
+            OnChangeLevel?.Invoke(_currentLevel);
+
+            var startDungeonConfig = DungeonConfig.CretaeDungeonData(_levelManagerData.DungeonConfigSO, _currentLevel);
+            _generationService.GenerateDungeon(startDungeonConfig);
+
+            ResetToStart();
+        }
+
+        private void ResetToStart()
+        {
+            var startPos = _generationService.GetPlayerStartPos();
+            _playerLogic.TeleportPlayer(startPos);
         }
     }
 }

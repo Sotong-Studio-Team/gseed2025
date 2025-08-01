@@ -1,5 +1,6 @@
 using UnityEngine;
 using VContainer;
+using VContainer.Unity;
 
 namespace SotongStudio.Bomber
 {
@@ -8,7 +9,8 @@ namespace SotongStudio.Bomber
         [SerializeField] private StartMenuView _startMenuView;
         public override void Install(IContainerBuilder builder)
         {
-            builder.Register<StartMenuLogic>(Lifetime.Singleton)
+            builder.RegisterEntryPoint<StartMenuLogic>(Lifetime.Singleton)
+                    .As<IInitializable>()
                     .WithParameter<IStartMenuView>(_startMenuView).AsSelf();
         }
     }

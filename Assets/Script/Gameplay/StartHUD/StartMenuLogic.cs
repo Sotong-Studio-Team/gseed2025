@@ -1,9 +1,10 @@
 using SotongStudio.Bomber.Gameplay.LevelManager;
 using UnityEngine;
+using VContainer.Unity;
 
 namespace SotongStudio.Bomber
 {
-    public class StartMenuLogic 
+    public class StartMenuLogic : IInitializable
     {
         private readonly IStartMenuView _view;
         private readonly ILevelManager _levelManager;
@@ -14,14 +15,19 @@ namespace SotongStudio.Bomber
             _view = view;
             _levelManager = levelManager;
 
-            _view.OnStartMenu.AddListener(StartGame);
 
             Debug.Log("Setup Start Menu");
         }
 
+ 
+        void IInitializable.Initialize()
+        {
+            _view.OnStartMenu.AddListener(StartGame);
+        }
+
         private void StartGame()
         {
-            _levelManager.StartLevel(1);
+            _levelManager.StartLevel();
         }
     }
 }

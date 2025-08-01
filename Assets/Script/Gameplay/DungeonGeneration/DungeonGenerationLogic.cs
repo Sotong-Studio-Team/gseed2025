@@ -6,7 +6,9 @@ namespace SotongStudio.Bomber.Gameplay.DungeonGeneration
 {
     public interface IDngeonGenerationLogic
     {
+        void CleanUpDungeon();
         void GenerateDugeonObject(IDugeonGeneratedData generationData);
+        Vector3 GetPlayerStartPos();
         void UpdateNavigationSurface();
     }
     public class DungeonGenerationLogic : IDngeonGenerationLogic
@@ -87,6 +89,22 @@ namespace SotongStudio.Bomber.Gameplay.DungeonGeneration
         {
             obj.transform.position = (Vector2)coordinate + _view.ZeroPosition;
             obj.transform.SetParent(_view.ObjectContainer);
+        }
+
+        public void CleanUpDungeon()
+        {
+            if(_view.ObjectContainer.childCount > 0)
+            {
+                foreach (Transform obj in _view.ObjectContainer)
+                {
+                    Object.Destroy(obj.gameObject);
+                }
+            }
+        }
+        
+        public Vector3 GetPlayerStartPos()
+        {
+            return _view.PlayerStartPos;
         }
     }
 }

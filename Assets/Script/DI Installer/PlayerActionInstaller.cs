@@ -11,7 +11,7 @@ namespace SotongStudio.Bomber
         
         public override void Install(IContainerBuilder builder)
         {
-            builder.RegisterEntryPoint<PlayerMovementLogic>();
+            builder.RegisterEntryPoint<PlayerMovementLogic>().AsSelf();
             builder.RegisterComponent(_playerMovementView);
             builder.Register<PlayerMovementModel>(Lifetime.Singleton);
         }
