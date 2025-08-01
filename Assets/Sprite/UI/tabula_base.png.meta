@@ -1,7 +1,16 @@
 fileFormatVersion: 2
-guid: 2920d4eccbf96d74fbbbfccb8c081d64
+guid: d9bbf6072fb01564893c00e58810f90b
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -3450798720872942040
+    second: tabula_base_0
+  - first:
+      213: -2787385001494152789
+    second: tabula_base_1
+  - first:
+      213: 4216308990911491825
+    second: tabula_base_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -39,7 +48,7 @@ TextureImporter:
     mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: 0
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
@@ -95,7 +104,73 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: tabula_base_0
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 43
+        width: 745
+        height: 937
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 826fef2b8dc4c10d0800000000000000
+      internalID: -3450798720872942040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tabula_base_1
+      rect:
+        serializedVersion: 2
+        x: 130
+        y: 3
+        width: 6
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba970bdfb183159d0800000000000000
+      internalID: -2787385001494152789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tabula_base_2
+      rect:
+        serializedVersion: 2
+        x: 859
+        y: 3
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fea09230b6538a30800000000000000
+      internalID: 4216308990911491825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -109,7 +184,10 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      tabula_base_0: -3450798720872942040
+      tabula_base_1: -2787385001494152789
+      tabula_base_2: 4216308990911491825
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
