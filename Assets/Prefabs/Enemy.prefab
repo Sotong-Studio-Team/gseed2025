@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 8889955060751301739}
   m_Layer: 0
   m_Name: Enemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -215,4 +215,9 @@ MonoBehaviour:
     enemyName: Dumber
     moveSpeed: 2.5
     maxHP: 1
+  obstacleLayers:
+    serializedVersion: 2
+    m_Bits: 256
+  safeDistance: 0.2
+  checkDistance: 0.5
   navmeshCheckDistance: 1

@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -13,6 +12,9 @@ namespace SotongStudio.Bomber
         public Enemy enemyData = new Enemy();
 
         [Header("Roaming Settings")]
+        public LayerMask obstacleLayers;         // layer untuk obstacle atau tembok
+        public float safeDistance = 0.2f;        // jarak aman biar ga dempet
+        public float checkDistance = 0.5f;       // jarak cek raycast
         public float navmeshCheckDistance = 1f;  // jarak cek ujung NavMesh
 
         private EnemyRoaming roaming;     // modul roaming
@@ -29,7 +31,10 @@ namespace SotongStudio.Bomber
                 transform,
                 GetComponent<NavMeshAgent>(),
                 rb,
+                obstacleLayers,
                 enemyData.moveSpeed,
+                safeDistance,
+                checkDistance,
                 navmeshCheckDistance
             );
 
@@ -38,18 +43,12 @@ namespace SotongStudio.Bomber
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
 
-        private void Start()
-        {
-            // mulai behavior roaming
-            
-        }
-
         private void FixedUpdate()
         {
             // jalankan logic roaming tiap physics frame
             roaming.Checking();
         }
-
+        
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.A))
