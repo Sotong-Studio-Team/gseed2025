@@ -14,6 +14,7 @@ namespace SotongStudio.Bomber.Gameplay.Bomb
 
     public interface IBombGameplayUpdateService
     {
+        [System.Obsolete("Doesn't Need to Setup. Flow are Updated. This will Do Nothing")]
         void SetupBombStat(BombStat bombStat);
 
         void AddBombDamage(int amount);
@@ -25,9 +26,15 @@ namespace SotongStudio.Bomber.Gameplay.Bomb
     public class BombGameplayDataService : IBombGameplayUpdateService, IBombGameplayDataService
     {
         private BombStat _bombStat;
+
+        public BombGameplayDataService(BombStarterConfigSO bombStartStat)
+        {
+            _bombStat = new(bombStartStat);
+        }
+
         public void SetupBombStat(BombStat bombStat)
         {
-            _bombStat = bombStat;
+            
         }
 
         public void AddBombDamage(int amount)

@@ -42,4 +42,9 @@ public class PlayerMovementLogic : IStartable
 
         _view.AnimatePlayer(_model.LastDirection, movement);
     }
+
+    public void TeleportPlayer(Vector3 newPos)
+    {
+       _view.transform.position = newPos;
+    }
 }

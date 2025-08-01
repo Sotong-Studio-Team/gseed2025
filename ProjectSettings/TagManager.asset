@@ -14,6 +14,7 @@ TagManager:
   - Player
   - Enemy
   - Wall
+  - Bomb
   - 
   - 
   - 
@@ -43,6 +44,9 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Dungeon Object
+    uniqueID: 3175302873
     locked: 0
   m_RenderingLayers:
   - Default

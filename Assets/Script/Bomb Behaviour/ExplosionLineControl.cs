@@ -88,12 +88,13 @@ namespace SotongStudio.Bomber
                     }
 
                     distance++; //nambah distance buat deteksi wall
-                    _view.DetectWall(direction, distance); 
+                    _view.DetectWall(direction, distance);
 
-                    if (!_view._isHitWall)
+                    if (_view._isHitWall)
                     {
-                        _view.ShowExplosion(prefabIndex, bombPosition, rotation);
+                        break;
                     }
+                    _view.ShowExplosion(prefabIndex, bombPosition, rotation);
                 }
 
                 //reset position
@@ -108,7 +109,7 @@ namespace SotongStudio.Bomber
             }
         }
 
-            IEnumerator ExplosionCountdownCo()
+        IEnumerator ExplosionCountdownCo()
         {
             yield return new WaitForSeconds(_view.ExplosionDuration);
             _view.DestroyBomb();

@@ -25,7 +25,6 @@ namespace SotongStudio.Plugins.DI
         {
             foreach (var data in _registerdScriptableObjects)
             {
-                Debug.Log("Here 2");
                 VContainerDIInstallerUtils.RegisterScriptable(builder, data);
             }
             foreach (var data in _predefinedCollection)

@@ -6,7 +6,9 @@ namespace SotongStudio.Bomber.Gameplay.DungeonGeneration
 {
     public interface IDngeonGenerationLogic
     {
+        void CleanUpDungeon();
         void GenerateDugeonObject(IDugeonGeneratedData generationData);
+        Vector3 GetPlayerStartPos();
         void UpdateNavigationSurface();
     }
     public class DungeonGenerationLogic : IDngeonGenerationLogic
@@ -40,11 +42,11 @@ namespace SotongStudio.Bomber.Gameplay.DungeonGeneration
         {
             _view.NavigationSurface.BuildNavMesh();
         }
-        private void AddBlockTile(string clusterId, Vector2Int blockArea)
+        private void AddBlockTile(string clusterId, Vector2Int blockPosition)
         {
             var block = Object.Instantiate(_view.HardWall);
             block.name = $"{clusterId}";
-            SetObjectPosition(block, blockArea);
+            SetObjectPosition(block, blockPosition);
 
             block.InitializeProcess();
         }
@@ -85,8 +87,24 @@ namespace SotongStudio.Bomber.Gameplay.DungeonGeneration
 
         private void SetObjectPosition(DungeonObject.DungeonObject obj, Vector2Int coordinate)
         {
-            obj.transform.position = (Vector2)coordinate;
+            obj.transform.position = (Vector2)coordinate + _view.ZeroPosition;
             obj.transform.SetParent(_view.ObjectContainer);
+        }
+
+        public void CleanUpDungeon()
+        {
+            if(_view.ObjectContainer.childCount > 0)
+            {
+                foreach (Transform obj in _view.ObjectContainer)
+                {
+                    Object.Destroy(obj.gameObject);
+                }
+            }
+        }
+        
+        public Vector3 GetPlayerStartPos()
+        {
+            return _view.PlayerStartPos;
         }
     }
 }
