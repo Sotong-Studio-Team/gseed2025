@@ -32,7 +32,7 @@ namespace SotongStudio.Bomber
         }
 
         [Button]
-        private async void DestroyAllSoft()
+        private void DestroyAllSoft()
         {
             var allSoftWalls = Object.FindObjectsByType<DungeonObject>(FindObjectsSortMode.None);
             foreach (var wall in allSoftWalls)

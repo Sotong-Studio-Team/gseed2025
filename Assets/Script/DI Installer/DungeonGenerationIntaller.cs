@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace SotongStudio.Bomber
 {
-    public class DungeonGenerationDI : ScopeInstallHelper
+    public class DungeonGenerationIntaller : ScopeInstallHelper
     {
         [SerializeField]
         private DungeonGenerationView _generationView;

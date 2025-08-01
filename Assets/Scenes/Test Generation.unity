@@ -568,7 +568,7 @@ GameObject:
   - component: {fileID: 1811735298}
   - component: {fileID: 1811735299}
   m_Layer: 0
-  m_Name: DI Installler
+  m_Name: Dungeon Generation Install
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -877,6 +877,7 @@ MonoBehaviour:
   - {fileID: 961305478}
   _installers:
   - {fileID: 1811735298}
+  - {fileID: 0}
 --- !u!4 &2022005287
 Transform:
   m_ObjectHideFlags: 0
