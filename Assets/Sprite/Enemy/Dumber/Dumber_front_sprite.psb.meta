@@ -1,0 +1,492 @@
+fileFormatVersion: 2
+guid: 87aa9840bf245ba47b0c40aa96f00edc
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b2a9591990af98743ba3ff7cf1000886, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 1
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 300
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: ef56c2db5efe0da43a1d99f5e478c452
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
+  multiSpriteImportData: []
+  layeredSpriteImportData:
+  - name: 'Head '
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 351
+      width: 118
+      height: 131
+    spriteID: f3ed2c6886685154bb1f2a2e8fbd7162
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 351}
+    spritePosition: {x: 197, y: 200}
+  - name: 'Jaw '
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 226
+      y: 4
+      width: 54
+      height: 67
+    spriteID: 88b6dfe8f25f18d4e8ea75423e8da1b9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 226, y: 4}
+    spritePosition: {x: 229, y: 191}
+  - name: 'Fire '
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 214
+      height: 339
+    spriteID: b89637f3e30367c4fb784eb192d8e49d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+    spritePosition: {x: 162, y: 163}
+  - name: 'L Spark 1 '
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 130
+      y: 447
+      width: 31
+      height: 46
+    spriteID: f506536f3582ee646a7fd9ea0757a7d2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 130, y: 447}
+    spritePosition: {x: 134, y: 327}
+  - name: 'L Spark 2 '
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 226
+      y: 79
+      width: 34
+      height: 103
+    spriteID: cd8fe9af405fd5c429bdbb038be811bc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 226, y: 79}
+    spritePosition: {x: 135, y: 390}
+  - name: 'R Spark 1 '
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 130
+      y: 351
+      width: 54
+      height: 88
+    spriteID: a08c97a778d810c45b368be00fea2183
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 130, y: 351}
+    spritePosition: {x: 357, y: 254}
+  - name: 'R Spark 2 '
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 169
+      y: 447
+      width: 23
+      height: 26
+    spriteID: dd3d5405d01abe545b7d9872ba4a7ec2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 169, y: 447}
+    spritePosition: {x: 377, y: 362}
+  - name: 'R Spark 3 '
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 192
+      y: 351
+      width: 14
+      height: 29
+    spriteID: 7ba198a7809344a44ba6a40fcc60cfae
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 192, y: 351}
+    spritePosition: {x: 337, y: 390}
+  - name: 'R Spark 4 '
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 226
+      y: 190
+      width: 45
+      height: 74
+    spriteID: cd8693ef95b1b504090a28e8f1f87d16
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 226, y: 190}
+    spritePosition: {x: 280, y: 388}
+  - name: 'R Spark 5 '
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    customData: 
+    rect:
+      serializedVersion: 2
+      x: 200
+      y: 447
+      width: 18
+      height: 29
+    spriteID: e13b15be85b62824185624348362afa8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 200, y: 447}
+    spritePosition: {x: 305, y: 464}
+  spriteImportData: []
+  rigSpriteImportData: []
+  sharedRigSpriteImportData: []
+  mosaicSpriteImportData: []
+  sharedRigCharacterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    pivot: {x: 0, y: 0}
+    boneReadOnly: 0
+  characterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    pivot: {x: 0, y: 0}
+    boneReadOnly: 0
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  mosaicLayers: 1
+  characterMode: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 7
+  importHiddenLayers: 0
+  layerMappingOption: 2
+  generatePhysicsShape: 0
+  paperDollMode: 0
+  keepDupilcateSpriteName: 1
+  padding: 4
+  spriteSizeExpand: 0
+  skeletonAssetReferenceID: 
+  pipeline: {instanceID: 0}
+  pipelineVersion: 
+  spriteCategoryList:
+    categories: []
+  spritePackingTag: 
+  resliceFromLayer: 0
+  pSDLayerImportSetting: []
+  psdLayers:
+  - name: 'Head '
+    spriteName: 'Head '
+    isGroup: 0
+    parentIndex: -1
+    spriteID: f3ed2c6886685154bb1f2a2e8fbd7162
+    layerID: 11
+    mosaicPosition: {x: 4, y: 351}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: 'Jaw '
+    spriteName: 'Jaw '
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 88b6dfe8f25f18d4e8ea75423e8da1b9
+    layerID: 10
+    mosaicPosition: {x: 226, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: 'Fire '
+    spriteName: 'Fire '
+    isGroup: 0
+    parentIndex: -1
+    spriteID: b89637f3e30367c4fb784eb192d8e49d
+    layerID: 9
+    mosaicPosition: {x: 4, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: 'L Spark 1 '
+    spriteName: 'L Spark 1 '
+    isGroup: 0
+    parentIndex: -1
+    spriteID: f506536f3582ee646a7fd9ea0757a7d2
+    layerID: 8
+    mosaicPosition: {x: 130, y: 447}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: 'L Spark 2 '
+    spriteName: 'L Spark 2 '
+    isGroup: 0
+    parentIndex: -1
+    spriteID: cd8fe9af405fd5c429bdbb038be811bc
+    layerID: 7
+    mosaicPosition: {x: 226, y: 79}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: 'R Spark 1 '
+    spriteName: 'R Spark 1 '
+    isGroup: 0
+    parentIndex: -1
+    spriteID: a08c97a778d810c45b368be00fea2183
+    layerID: 6
+    mosaicPosition: {x: 130, y: 351}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: 'R Spark 2 '
+    spriteName: 'R Spark 2 '
+    isGroup: 0
+    parentIndex: -1
+    spriteID: dd3d5405d01abe545b7d9872ba4a7ec2
+    layerID: 5
+    mosaicPosition: {x: 169, y: 447}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: 'R Spark 3 '
+    spriteName: 'R Spark 3 '
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 7ba198a7809344a44ba6a40fcc60cfae
+    layerID: 4
+    mosaicPosition: {x: 192, y: 351}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: 'R Spark 4 '
+    spriteName: 'R Spark 4 '
+    isGroup: 0
+    parentIndex: -1
+    spriteID: cd8693ef95b1b504090a28e8f1f87d16
+    layerID: 3
+    mosaicPosition: {x: 226, y: 190}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: 'R Spark 5 '
+    spriteName: 'R Spark 5 '
+    isGroup: 0
+    parentIndex: -1
+    spriteID: e13b15be85b62824185624348362afa8
+    layerID: 2
+    mosaicPosition: {x: 200, y: 447}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  mosaicPSDLayers: []
+  rigPSDLayers: []
+  sharedRigPSDLayers: []
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  spriteSizeExpandChanged: 0
+  generateGOHierarchy: 0
+  textureAssetName: 
+  prefabAssetName: 
+  spriteLibAssetName: 
+  skeletonAssetName: 
+  secondarySpriteTextures: []

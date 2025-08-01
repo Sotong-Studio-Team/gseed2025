@@ -1,3 +1,5 @@
+using SotongStudio.Bomber;
+using Unity.VisualScripting;
 using UnityEngine;
 using VContainer.Unity;
 
@@ -5,13 +7,15 @@ public class PlayerMovementLogic : IStartable
 {
     private readonly PlayerMovementView _view;
     private readonly PlayerMovementModel _model;
+    private readonly PlayerInputView _inputView;
 
-    public PlayerMovementLogic(PlayerMovementView view, PlayerMovementModel model)
+    public PlayerMovementLogic(PlayerMovementView view, PlayerMovementModel model, PlayerInputView inputView)
     {
         _view = view;
         _model = model;
+        _inputView = inputView;
 
-        _view.OnUpdate += HandleInput;
+        _inputView.OnMovementInput.AddListener(CheckInput);
     }
 
     void IStartable.Start()
@@ -19,22 +23,12 @@ public class PlayerMovementLogic : IStartable
         
     }
 
-    private void HandleInput()
+    private void CheckInput(Vector2 movement)
     {
-        _view.AnimatePlayer(_model.LastDirection, _model.Movement);
-
-        CheckInput();
-    }
-
-    private void CheckInput()
-    {
-        _model.Movement.x = Input.GetAxis("Horizontal");
-        _model.Movement.y = Input.GetAxis("Vertical");
-
-        if (_model.Movement != Vector2.zero)
+        if (movement != Vector2.zero)
         {
-            _view.MovePlayer(_model.MoveSpeed, _model.Movement);
-            _model.UpdateLastDirection(_model.Movement);
+            _view.MovePlayer(_model.MoveSpeed, movement);
+            _model.UpdateLastDirection(movement);
         }
 
         if(_model.LastDirection.x < 0)
@@ -45,6 +39,8 @@ public class PlayerMovementLogic : IStartable
         {
             _view.FlipSprite(false);
         }
+
+        _view.AnimatePlayer(_model.LastDirection, movement);
     }
 
     public void TeleportPlayer(Vector3 newPos)
