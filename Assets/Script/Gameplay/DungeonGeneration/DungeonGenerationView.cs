@@ -6,19 +6,15 @@ namespace SotongStudio.Bomber
 {
     public interface IDungeonGenerationView
     {
-        Transform[] ClusterSlots { get; }
-
         DungeonObject HardWall { get; }
         DungeonObject SoftWall { get; }
         Transform ObjectContainer { get; }
 
         NavMeshSurface NavigationSurface { get; }
+        Vector2 ZeroPosition { get; }
     }
     public class DungeonGenerationView : MonoBehaviour, IDungeonGenerationView
     {
-        [SerializeField]
-        private Transform[] _clusterSlots;
-        
         [SerializeField]
         private DungeonObject _blockArea;
         [SerializeField]
@@ -28,13 +24,15 @@ namespace SotongStudio.Bomber
 
         [SerializeField]
         private NavMeshSurface _navigationSurface;
-
-        public Transform[] ClusterSlots => _clusterSlots;
+        [SerializeField]
+        private Transform _zeroPosition;
 
         public DungeonObject HardWall => _blockArea;
         public DungeonObject SoftWall => _coverObject;
         public Transform ObjectContainer => _objectContainer;
 
         public NavMeshSurface NavigationSurface => _navigationSurface;
+
+        public Vector2 ZeroPosition => _zeroPosition.position;
     }
 }

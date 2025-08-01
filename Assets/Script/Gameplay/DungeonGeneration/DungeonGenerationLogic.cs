@@ -40,11 +40,11 @@ namespace SotongStudio.Bomber.Gameplay.DungeonGeneration
         {
             _view.NavigationSurface.BuildNavMesh();
         }
-        private void AddBlockTile(string clusterId, Vector2Int blockArea)
+        private void AddBlockTile(string clusterId, Vector2Int blockPosition)
         {
             var block = Object.Instantiate(_view.HardWall);
             block.name = $"{clusterId}";
-            SetObjectPosition(block, blockArea);
+            SetObjectPosition(block, blockPosition);
 
             block.InitializeProcess();
         }
@@ -85,7 +85,7 @@ namespace SotongStudio.Bomber.Gameplay.DungeonGeneration
 
         private void SetObjectPosition(DungeonObject.DungeonObject obj, Vector2Int coordinate)
         {
-            obj.transform.position = (Vector2)coordinate;
+            obj.transform.position = (Vector2)coordinate + _view.ZeroPosition;
             obj.transform.SetParent(_view.ObjectContainer);
         }
     }

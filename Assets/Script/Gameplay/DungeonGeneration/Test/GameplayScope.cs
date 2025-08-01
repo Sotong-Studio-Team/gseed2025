@@ -3,7 +3,7 @@ using VContainer;
 
 namespace SotongStudio.Bomber
 {
-    public class GenerationTestsScope : SceneScope
+    public class GameplayScope : SceneScope
     {
         protected override void AddRegistration(IContainerBuilder builder)
         {

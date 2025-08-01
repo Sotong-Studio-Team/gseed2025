@@ -4,6 +4,7 @@ namespace SotongStudio.Bomber.Gameplay.Character.DataService
 {
     public interface ICharacterGameplayUpdateService
     {
+        [System.Obsolete("Doesn't Need to Setup. Flow are Updated. This will Do Nothing")]
         void SetupCharacterStat(CharacterStatGameplay characterStat);
 
         void AddPlayerHealth(int amount);
@@ -25,7 +26,12 @@ namespace SotongStudio.Bomber.Gameplay.Character.DataService
     public class CharacterGameplayDataService : ICharacterGameplayDataService, ICharacterGameplayUpdateService
     {
 
-        private CharacterStatGameplay _characterStat;
+        private readonly CharacterStatGameplay _characterStat;
+
+        public CharacterGameplayDataService(CharacterStarterConfigSO characterStat)
+        {
+            _characterStat = new(characterStat);
+        }
 
         public int GetCharacterCurrentHealth()
         {
@@ -42,9 +48,8 @@ namespace SotongStudio.Bomber.Gameplay.Character.DataService
 
         public void SetupCharacterStat(CharacterStatGameplay characterStat)
         {
-            _characterStat = characterStat;
+            
         }
-
         public void AddPlayerHealth(int amount)
         {
             _characterStat.Health += amount;

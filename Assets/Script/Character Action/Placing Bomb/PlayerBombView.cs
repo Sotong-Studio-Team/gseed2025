@@ -1,11 +1,13 @@
+using SotongStudio.Utilities.Vector2Helper;
 using UnityEngine;
 
 public class PlayerBombView : MonoBehaviour
 {
-    [SerializeField] private GridForBomb _grid;
+    //[SerializeField] private GridForBomb _grid;
 
     [SerializeField] private GameObject _bombPrefab;
     [SerializeField] private int _maxAmount= 1;
+    [SerializeField] private Transform _bombPlacement;
     private int _currentAmount;
 
     private void Start()
@@ -24,7 +26,9 @@ public class PlayerBombView : MonoBehaviour
 
     private void PlaceBomb(Vector2 point)
     {
-        var finalPosition = _grid.GetNearestPointOnGrid(point);
-        Instantiate(_bombPrefab, finalPosition, Quaternion.identity);
+        var finalPosition = WorldSnappingPos.SnapWorldPosition(point);
+            //_grid.GetNearestPointOnGrid(point);
+        var createdBomb = Instantiate(_bombPrefab, finalPosition, Quaternion.identity);
+        createdBomb.transform.parent = _bombPlacement;
     }
 }

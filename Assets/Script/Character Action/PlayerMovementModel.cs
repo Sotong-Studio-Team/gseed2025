@@ -4,7 +4,7 @@ public class PlayerMovementModel
 {
     public Vector2 Movement;
     public Vector2 LastDirection = Vector2.down;
-    public float MoveSpeed = 10f;
+    public float MoveSpeed = 2f;
 
     public void UpdateLastDirection(Vector2 movement)
     {
