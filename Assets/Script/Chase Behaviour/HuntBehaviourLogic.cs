@@ -1,6 +1,8 @@
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.Events;
 
 namespace SotongStudio.Bomber.Gameplay.Enemy.Behaviour
 {
@@ -9,7 +11,11 @@ namespace SotongStudio.Bomber.Gameplay.Enemy.Behaviour
         public readonly IHuntBehaviourComponent _huntComponent;
         private CancellationTokenSource _huntCts;
         private IHuntTarget _currentTarget;
-        private bool _isCanHunt;
+
+        public UnityEvent OnDoneHunt = new();
+        public UnityEvent OnPreHunt = new();
+
+        private readonly NavMeshPath _tempPath = new NavMeshPath();
 
         public HuntBehaviourLogic(IHuntBehaviourComponent chaseLogic)
         {
@@ -19,33 +25,17 @@ namespace SotongStudio.Bomber.Gameplay.Enemy.Behaviour
             _huntComponent.OnLostTarget.AddListener(OnLostTarget);
         }
 
-        public void SetCanHunt(bool isCanHunt)
+        private void OnDetectTarget(IHuntTarget target)
         {
-            _isCanHunt = isCanHunt;
-
-            if (!_isCanHunt)
+            if (target == null || !IsCanHunt(target))
             {
                 CancelHuntProcess();
                 _currentTarget = null;
-                _huntComponent.NavAgentHandled.ResetPath();
-            }
-            else
-            {
-                if (_currentTarget == null) { return; }
-
-                CancelHuntProcess();
-                _huntCts = new CancellationTokenSource();
-
-                PeriodicCheckAsync(_huntCts.Token).Forget();
-            }
-        }
-
-        private void OnDetectTarget(IHuntTarget target)
-        {
-            if (!_isCanHunt)
-            {
+                _huntComponent.Agent.ResetPath();
                 return;
             }
+
+            OnPreHunt?.Invoke();
 
             CancelHuntProcess();
             _huntCts = new CancellationTokenSource();
@@ -60,18 +50,21 @@ namespace SotongStudio.Bomber.Gameplay.Enemy.Behaviour
             CancelHuntProcess();
 
             _currentTarget = null;
-            _huntComponent.NavAgentHandled.ResetPath();
+            _huntComponent.Agent.ResetPath();
+
+            OnDoneHunt?.Invoke();
         }
 
         private async UniTaskVoid PeriodicCheckAsync(CancellationToken cancellationToken)
         {
-            if (_currentTarget != null) { return; }
-
-            while (_currentTarget != null ||
-                   !_huntCts.IsCancellationRequested)
+            for (int i = 0; i < 10;)
             {
-                await UniTask.WaitForSeconds(0.3f, cancellationToken: cancellationToken);
-                _huntComponent.NavAgentHandled.SetDestination(_currentTarget.Transform.position);
+                if(_currentTarget != null ||
+                  !cancellationToken.IsCancellationRequested)
+                {
+                    await UniTask.WaitForSeconds(0.3f, cancellationToken: cancellationToken);
+                    _huntComponent.Agent.SetDestination(_currentTarget.Transform.position);
+                }
             }
         }
 
@@ -80,6 +73,13 @@ namespace SotongStudio.Bomber.Gameplay.Enemy.Behaviour
             _huntCts?.Cancel();
             _huntCts?.Dispose();
             _huntCts = null;
+        }
+
+        private bool IsCanHunt(IHuntTarget target)
+        {
+            _huntComponent.Agent.CalculatePath(target.Transform.position, _tempPath);
+
+            return _tempPath.status == NavMeshPathStatus.PathComplete;
         }
     }
 }

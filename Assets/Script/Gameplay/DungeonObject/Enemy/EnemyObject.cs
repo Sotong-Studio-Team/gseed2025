@@ -6,9 +6,6 @@ namespace SotongStudio.Bomber.Gameplay.DungeonObject.Enemy
     }
     public class EnemyObject : DungeonObject, IEnemyObject
     {
-        public override void TakeExplosionDamageProcess(int damage)
-        {
-            // Calculate Damage
-        }
+       
     }
 }

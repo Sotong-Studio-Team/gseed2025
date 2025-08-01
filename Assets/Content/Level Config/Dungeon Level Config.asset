@@ -19,15 +19,15 @@ MonoBehaviour:
     <SpawnRate>k__BackingField: 100
   EnemySpawnRate:
     <DungeonObjectId>k__BackingField: 
-    <SpawnRate>k__BackingField: 20
+    <SpawnRate>k__BackingField: 10
     <EnemyUnits>k__BackingField:
     - <EnemyUnitId>k__BackingField: DUN-OBJ-MONSTER-A
-      <SpawnRate>k__BackingField: 50
+      <SpawnRate>k__BackingField: 0
     - <EnemyUnitId>k__BackingField: DUN-OBJ-MONSTER-B
-      <SpawnRate>k__BackingField: 50
+      <SpawnRate>k__BackingField: 100
   CoinSpawnRate:
     <DungeonObjectId>k__BackingField: DUN-OBJ-COIN
-    <SpawnRate>k__BackingField: 20
+    <SpawnRate>k__BackingField: 0
   EmptySpawnRate:
     <DungeonObjectId>k__BackingField: DUN-OBJ-EMPTY
-    <SpawnRate>k__BackingField: 60
+    <SpawnRate>k__BackingField: 90

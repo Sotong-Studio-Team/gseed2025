@@ -9,7 +9,7 @@ namespace SotongStudio.Bomber.Gameplay.Enemy.Behaviour
         UnityEvent<IHuntTarget> OnDetectTarget { get; }
         UnityEvent OnLostTarget { get; }
 
-        NavMeshAgent NavAgentHandled { get; }
+        NavMeshAgent Agent { get; }
     }
     public class HuntBehaviourComponent : MonoBehaviour, IHuntBehaviourComponent
     {
@@ -20,7 +20,7 @@ namespace SotongStudio.Bomber.Gameplay.Enemy.Behaviour
 
         public UnityEvent<IHuntTarget> OnDetectTarget { get; private set; } = new();
         public UnityEvent OnLostTarget { get; private set; } = new();
-        public NavMeshAgent NavAgentHandled => _navmeshAgent;
+        public NavMeshAgent Agent => _navmeshAgent;
 
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -34,7 +34,7 @@ namespace SotongStudio.Bomber.Gameplay.Enemy.Behaviour
 
         private void OnTriggerExit2D(Collider2D collision)
         {
-            if (collision.TryGetComponent<IHuntTarget>(out var target) 
+            if (collision.TryGetComponent<IHuntTarget>(out var target)
                 && target == _currentHandledTarget)
             {
                 _currentHandledTarget = null;
