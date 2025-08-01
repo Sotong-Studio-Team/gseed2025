@@ -145,7 +145,7 @@ Transform:
   m_GameObject: {fileID: 140886951}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -408,7 +408,7 @@ Transform:
   m_GameObject: {fileID: 196906573}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.019998554, y: 2.4499998, z: -10}
+  m_LocalPosition: {x: 0.019999223, y: 2.4499998, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1039,7 +1039,7 @@ GameObject:
   - component: {fileID: 466694715}
   - component: {fileID: 466694717}
   - component: {fileID: 466694716}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sidewall_map2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1300,7 +1300,7 @@ GameObject:
   - component: {fileID: 602284671}
   - component: {fileID: 602284673}
   - component: {fileID: 602284672}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1882,7 +1882,7 @@ GameObject:
   - component: {fileID: 780159584}
   - component: {fileID: 780159585}
   - component: {fileID: 780159586}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2559,7 +2559,7 @@ GameObject:
   - component: {fileID: 1081061191}
   - component: {fileID: 1081061193}
   - component: {fileID: 1081061192}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Up
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3892,7 +3892,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bombPrefab: {fileID: 7201122331018779530, guid: 3d7b6e479972799438f3cef48d859398, type: 3}
   _maxAmount: 3
+  _bombCooldown: 1.5
   _bombPlacement: {fileID: 526096081}
+  OnBombDeployed:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1654148392
 GameObject:
   m_ObjectHideFlags: 0
@@ -3923,6 +3927,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _playerMovementView: {fileID: 2072389022}
+  _playerInputView: {fileID: 2072389028}
 --- !u!4 &1654148394
 Transform:
   m_ObjectHideFlags: 0
@@ -4119,7 +4124,7 @@ GameObject:
   - component: {fileID: 1731787616}
   - component: {fileID: 1731787618}
   - component: {fileID: 1731787617}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4407,7 +4412,7 @@ GameObject:
   - component: {fileID: 1867415617}
   - component: {fileID: 1867415618}
   - component: {fileID: 1867415619}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4731,7 +4736,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1960773119}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Side Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4768,7 +4773,7 @@ GameObject:
   - component: {fileID: 1970745966}
   - component: {fileID: 1970745968}
   - component: {fileID: 1970745967}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sidewall_map1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4955,6 +4960,7 @@ GameObject:
   - component: {fileID: 2072389025}
   - component: {fileID: 2072389026}
   - component: {fileID: 2072389027}
+  - component: {fileID: 2072389028}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -5141,10 +5147,10 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0.5}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 2}
     adaptiveTilingThreshold: 0.5
@@ -5179,6 +5185,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _invincibleDuration: 2
   _flashInterval: 0.2
+--- !u!114 &2072389028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072389015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35667aa20aa67914faf8d45aab444b52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnMovementInput:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2107385621
 GameObject:
   m_ObjectHideFlags: 0
@@ -5191,7 +5212,7 @@ GameObject:
   - component: {fileID: 2107385623}
   - component: {fileID: 2107385624}
   - component: {fileID: 2107385625}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5414,7 +5435,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2144790754}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}

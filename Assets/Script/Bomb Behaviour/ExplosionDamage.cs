@@ -10,6 +10,7 @@ namespace SotongStudio.Bomber
         {
             if (collision.TryGetComponent(out IDamageable damageable))
             {
+                //Cuman works buat Player
                 damageable?.Damage(_explosionDamage);
             }
 

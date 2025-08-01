@@ -12,7 +12,9 @@ GameObject:
   - component: {fileID: 4736371754039322418}
   - component: {fileID: 2659225054951191232}
   - component: {fileID: 3293593290380396426}
-  m_Layer: 8
+  - component: {fileID: -5513854912488131531}
+  - component: {fileID: -2866752572117378073}
+  m_Layer: 9
   m_Name: Bomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,3 +153,37 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-5513854912488131531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7201122331018779530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b664d9896ace70645a647e1c54bd81de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _view: {fileID: -2866752572117378073}
+--- !u!114 &-2866752572117378073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7201122331018779530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51d9be32a0a7ee44d8fad20c14394352, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _explosionPrefabs:
+  - {fileID: 8920187942980730901, guid: 551ecfd7aceb92a49b736769698138c8, type: 3}
+  - {fileID: 311526512216275774, guid: ac22f14af5f751641a779f1491273e8a, type: 3}
+  - {fileID: 6000272809282465666, guid: 6fdb17c15c3c1f2458a9bfb7ffb83d57, type: 3}
+  BombLength: 4
+  BombDuration: 1
+  ExplosionDuration: 0.5
+  Temp: {fileID: 0}
+  _isHitWall: 0

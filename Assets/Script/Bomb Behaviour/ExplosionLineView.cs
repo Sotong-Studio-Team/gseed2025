@@ -1,7 +1,5 @@
-using NUnit.Framework;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 namespace SotongStudio.Bomber
 {
@@ -47,8 +45,13 @@ namespace SotongStudio.Bomber
 
             if (hit.collider != null)
             {
-                Debug.Log("Hit object: " + hit.collider.name);
-                _isHitWall = true;
+                var hitedObject = hit.collider.GetComponent<IDamageable>();
+                if (hitedObject != null)
+                {
+                    _isHitWall = true;
+                    hitedObject.Damage(1); // Assuming damage amount is 1
+                    Debug.Log("Hit object: " + hit.collider.name);
+                }
             }
         }
     }
