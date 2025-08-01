@@ -1,6 +1,8 @@
 using SotongStudio.Bomber.Gameplay.DungeonGeneration.Data;
 using SotongStudio.Bomber.Gameplay.DungeonObject;
 using UnityEngine;
+using VContainer;
+using VContainer.Unity;
 
 namespace SotongStudio.Bomber.Gameplay.DungeonGeneration
 {
@@ -15,12 +17,15 @@ namespace SotongStudio.Bomber.Gameplay.DungeonGeneration
     {
         private readonly IDungeonGenerationView _view;
         private readonly IDungeonObjectConfigCollection _dungeonObjectConfigCollection;
+        private readonly IObjectResolver _DI_Resolver;
 
         public DungeonGenerationLogic(IDungeonGenerationView view,
-                                      IDungeonObjectConfigCollection dungeonObjectConfigCollection)
+                                      IDungeonObjectConfigCollection dungeonObjectConfigCollection,
+                                      IObjectResolver DI_Resolver)
         {
             _view = view;
             _dungeonObjectConfigCollection = dungeonObjectConfigCollection;
+            _DI_Resolver = DI_Resolver;
         }
 
         public void GenerateDugeonObject(IDugeonGeneratedData generationData)
@@ -60,6 +65,8 @@ namespace SotongStudio.Bomber.Gameplay.DungeonGeneration
 
             var obj = Object.Instantiate(objPrefab);
             SetObjectPosition(obj, coordinate);
+
+            _DI_Resolver.InjectGameObject(obj.gameObject);
 
             obj.InitializeProcess();
 
