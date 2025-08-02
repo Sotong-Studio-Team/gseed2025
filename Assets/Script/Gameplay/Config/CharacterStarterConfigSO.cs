@@ -11,12 +11,13 @@ namespace SotongStudio.Bomber.Gameplay.Character
         [SerializeField]
         private int _speed;
         [SerializeField]
-        private int _bombAmount;
+        private int _maxBombAmount;
 
         public int MaxHealth => _maxHealth;
         public int Health => _maxHealth;
         public int Speed => _speed;
-        public int BombAmount => _bombAmount;
+        public int BombAmount => _maxBombAmount;
+        public int MaxBombAmount => _maxBombAmount;
         
     }
 }

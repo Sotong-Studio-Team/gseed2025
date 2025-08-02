@@ -1,36 +1,46 @@
 using SotongStudio.Bomber;
+using SotongStudio.Bomber.Gameplay.Character.DataService;
 using UnityEngine;
 using VContainer.Unity;
 
 public class PlayerMovementLogic : IStartable
 {
     private readonly PlayerMovementView _view;
-    private readonly PlayerMovementModel _model;
     private readonly PlayerInputView _inputView;
 
-    public PlayerMovementLogic(PlayerMovementView view, PlayerMovementModel model, PlayerInputView inputView)
+    private ICharacterGameplayDataService _characterDataService;
+
+    public PlayerMovementLogic(PlayerMovementView view, PlayerInputView inputView, ICharacterGameplayDataService characterDataService)
     {
         _view = view;
-        _model = model;
         _inputView = inputView;
+
+        _characterDataService = characterDataService;
 
         _inputView.OnMovementInput.AddListener(CheckInput);
     }
+
+    private Vector2 _lastDirection = Vector2.down;
 
     void IStartable.Start()
     {
         
     }
 
+    public void UpdateLastDirection(Vector2 movement)
+    {
+        _lastDirection = movement;
+    }
+
     private void CheckInput(Vector2 movement)
     {
         if (movement != Vector2.zero)
         {
-            _view.MovePlayer(_model.MoveSpeed, movement);
-            _model.UpdateLastDirection(movement);
+            _view.MovePlayer(_characterDataService.GetCharacterSpeed(), movement);
+            UpdateLastDirection(movement);
         }
 
-        if(_model.LastDirection.x < 0)
+        if(_lastDirection.x < 0)
         {
             _view.FlipSprite(true);
         }
@@ -39,7 +49,7 @@ public class PlayerMovementLogic : IStartable
             _view.FlipSprite(false);
         }
 
-        _view.AnimatePlayer(_model.LastDirection, movement);
+        _view.AnimatePlayer(_lastDirection, movement);
     }
 
     public void TeleportPlayer(Vector2 newPos)

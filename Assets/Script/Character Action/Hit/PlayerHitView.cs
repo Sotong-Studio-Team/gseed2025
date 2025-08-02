@@ -1,10 +1,23 @@
 using SotongStudio.Bomber;
+using SotongStudio.Bomber.Gameplay.Bomb;
+using SotongStudio.Bomber.Gameplay.Character.DataService;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Android;
+using VContainer;
 
 public class PlayerHitView : MonoBehaviour, IDamageable
 {
+    private ICharacterGameplayDataService _characterDataService;
+    private ICharacterGameplayUpdateService _characterDataUpdate;
+
+    [Inject]
+    public void Inject(ICharacterGameplayDataService characterDataService, ICharacterGameplayUpdateService characterDataUpdate)
+    {
+        _characterDataService = characterDataService;
+        _characterDataUpdate = characterDataUpdate;
+    }
+
     [SerializeField]
     private SpriteRenderer[] _sprites;
     private Collider2D _collider;
@@ -12,16 +25,10 @@ public class PlayerHitView : MonoBehaviour, IDamageable
     [SerializeField] private float _invincibleDuration = 2f;
     [SerializeField] private float _flashInterval = 0.5f;
 
-    private int _minHP = 1;
-    private int _maxHP = 3;
-    private int _currentHP;
-
     private void Awake()
     {
         //_sprite = GetComponent<SpriteRenderer>();
         _collider = GetComponent<Collider2D>();
-
-        _currentHP = _maxHP;
     }
 
     public void Damage(int amount)
@@ -31,15 +38,14 @@ public class PlayerHitView : MonoBehaviour, IDamageable
             return;
         }
 
-        _currentHP -= amount;
-        Debug.Log($"Player health = {_currentHP}/{_maxHP}");
-
-        if (_currentHP < 0)
+        if (_characterDataService.GetCharacterCurrentHealth() <= 0)
         {
             Die();
         }
         else
         {
+            _characterDataUpdate.ReducePlayerHealth(amount);
+            Debug.Log($"Player health = {_characterDataService.GetCharacterCurrentHealth()}/{_characterDataService.GetCharacterMaxHealth()}");
             StartCoroutine(InvincibleCo());
         }
     }
