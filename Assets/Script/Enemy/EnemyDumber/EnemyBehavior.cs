@@ -1,3 +1,4 @@
+using SotongStudio.Bomber.Gameplay.DungeonObject.Enemy;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -6,7 +7,7 @@ namespace SotongStudio.Bomber
     [RequireComponent(typeof(Rigidbody2D))]
     [RequireComponent(typeof(Collider2D))]
     [RequireComponent(typeof(NavMeshAgent))]
-    public class EnemyBehavior : MonoBehaviour
+    public class EnemyBehavior : EnemyObject
     {
         [Header("Enemy Data")]
         public Enemy enemyData = new Enemy();
@@ -21,7 +22,7 @@ namespace SotongStudio.Bomber
         private Rigidbody2D rb;           // komponen rigidbody
         private Collider2D col;           // komponen collider
 
-        private void Awake()
+        public override void InitializeProcess()
         {
             rb = GetComponent<Rigidbody2D>();
             col = GetComponent<Collider2D>();
@@ -43,27 +44,20 @@ namespace SotongStudio.Bomber
             rb.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
 
+        public override void ShowUpProcess()
+        {
+            roaming.Start();
+        }
         private void FixedUpdate()
         {
             // jalankan logic roaming tiap physics frame
             roaming.Checking();
         }
-        
-        private void Update()
+
+        public override void TakeExplosionDamageProcess(int damage)
         {
-            if (Input.GetKeyDown(KeyCode.A))
-            {
-                roaming.Start();
-            }
-            if (Input.GetKeyDown(KeyCode.S))
-            {
-                Die();
-                roaming.Stop();
-            }
-            if (Input.GetKeyDown(KeyCode.D))
-            {
-                roaming.Stop();
-            }
+            Die();
+            base.TakeExplosionDamageProcess(damage);
         }
 
         private void OnCollisionEnter2D(Collision2D collision)

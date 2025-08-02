@@ -2,21 +2,21 @@ using UnityEngine;
 
 namespace SotongStudio.Bomber.Gameplay.DungeonObject.Enemy
 {
-    public interface IHunterEnemy
+    public interface IDumberEnemy
     {
-        IHunterEnemyVisual Visual { get; }
-        IHunterEnemyBehaviour Behaviour { get; }
+        IDumberEnemyVisual Visual { get; }
+        IDumberEnemyBehaviour Behaviour { get; }
     }
-    public class HunterEnemyObject : EnemyObject, IHunterEnemy
+    public class DumberEnemyObject : EnemyObject, IDumberEnemy
     {
         [SerializeField] 
-        HunterEnemyVisual _hunterVisual;
+        DumberEnemyVisual _hunterVisual;
         
         [SerializeField]
-        HunterEnemyBehaviours _hunterBehaviours;
+        DumberEnemyBehaviours _hunterBehaviours;
         
-        public IHunterEnemyVisual Visual => _hunterVisual;
-        public IHunterEnemyBehaviour Behaviour => _hunterBehaviours;
+        public IDumberEnemyVisual Visual => _hunterVisual;
+        public IDumberEnemyBehaviour Behaviour => _hunterBehaviours;
 
         public override void InitializeProcess()
         {
@@ -25,7 +25,7 @@ namespace SotongStudio.Bomber.Gameplay.DungeonObject.Enemy
         }
         public override void ShowUpProcess()
         {
-            Debug.Log("Show Up Proses Enemy Hunter");
+            Debug.Log("Show Up Proses Enemy Dumber");
             base.ShowUpProcess();
 
             //Play Wake Up Animation
@@ -34,7 +34,7 @@ namespace SotongStudio.Bomber.Gameplay.DungeonObject.Enemy
 
         public override void TakeExplosionDamageProcess(int damage)
         {
-            Debug.Log("Hunter Take Explosion damage");
+            Debug.Log("Dumber Take Explosion damage");
             Object.Destroy(gameObject);
         }
         private void InternalSetup()
