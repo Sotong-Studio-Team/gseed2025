@@ -2,6 +2,7 @@ using SotongStudio.Bomber.Gameplay.HUD;
 using TMPro;
 using UnityEngine;
 using VContainer;
+using SotongStudio.Utilities.AudioSystem;
 
 namespace SotongStudio.Bomber
 {
@@ -74,6 +75,7 @@ namespace SotongStudio.Bomber
             if (IsCurrencyEnough(_healPrice))
             {
                 _view.Close(4);
+                BasicAudioSystem.Instance.PlaySFX("accept market");
                 _data.Heal();
             }
             _data.PrintStat();
@@ -84,6 +86,7 @@ namespace SotongStudio.Bomber
             if (IsCurrencyEnough(_hpPrice))
             {
                 _view.Close(0);
+                BasicAudioSystem.Instance.PlaySFX("accept market");
                 _data.AddMaxHP();
             }
             _data.PrintStat();
@@ -94,6 +97,7 @@ namespace SotongStudio.Bomber
             if (IsCurrencyEnough(_speedPrice))
             {
                 _view.Close(1);
+                BasicAudioSystem.Instance.PlaySFX("accept market");
                 _data.AddSpeed();
             }
             _data.PrintStat();
@@ -104,6 +108,7 @@ namespace SotongStudio.Bomber
             if (IsCurrencyEnough(_bombPrice))
             {
                 _view.Close(2);
+                BasicAudioSystem.Instance.PlaySFX("accept market");
                 _data.AddBomb();
             }
             _data.PrintStat();
@@ -114,6 +119,7 @@ namespace SotongStudio.Bomber
             if (IsCurrencyEnough(_explosionPrice))
             {
                 _view.Close(3);
+                BasicAudioSystem.Instance.PlaySFX("accept market");
                 _data.AddExplosion();
             }
             _data.PrintStat();

@@ -6,6 +6,7 @@ using SotongStudio.Utilities.Vector2Helper;
 using UnityEngine;
 using UnityEngine.Events;
 using VContainer;
+using SotongStudio.Utilities.AudioSystem;
 
 public class PlayerBombView : MonoBehaviour
 {
@@ -39,6 +40,7 @@ public class PlayerBombView : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && _characterDataService.GetBombAmount() > 0)
         {
+            BasicAudioSystem.Instance.PlaySFX("throwing");
             _characterDataUpdate.ReduceBombAmount(1);
             _hudLogic.UpdateBomb();
             PlaceBomb(transform.position);
