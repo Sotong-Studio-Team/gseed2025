@@ -30,7 +30,7 @@ namespace SotongStudio.Bomber.Gameplay.HUD
             _inventoryDataService = inventoryDataService;
 
         }
-        public void UpdateHealth()
+        public void UpdateHealth()  
         {
             _healthHUDView.UpdateMaxHealth(_characterDataSerivce.GetCharacterMaxHealth());
             _healthHUDView.UpdateCurrentHealth(_characterDataSerivce.GetCharacterCurrentHealth());
