@@ -17,8 +17,8 @@ public class PlayerBombView : MonoBehaviour
     private IBombGameplayDataService _bombDataService;
 
     [Inject]
-    public void Inject(ICharacterGameplayDataService characterDataService, 
-                       ICharacterGameplayUpdateService characterDataUpdate, 
+    public void Inject(ICharacterGameplayDataService characterDataService,
+                       ICharacterGameplayUpdateService characterDataUpdate,
                        IBombGameplayDataService bombDataService,
                        IGameplayHudLogic hudLogic)
     {
@@ -49,7 +49,7 @@ public class PlayerBombView : MonoBehaviour
     private void PlaceBomb(Vector2 point)
     {
         var finalPosition = WorldSnappingPos.SnapWorldPosition(point + (Vector2.up/2));
-            //_grid.GetNearestPointOnGrid(point);
+        //_grid.GetNearestPointOnGrid(point);
         var createdBomb = Instantiate(_bombPrefab, finalPosition, Quaternion.identity);
         createdBomb.transform.parent = _bombPlacement;
     }

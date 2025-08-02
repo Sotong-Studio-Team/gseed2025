@@ -32,7 +32,7 @@ namespace SotongStudio.Bomber.Gameplay.HUD
         }
         public void UpdateHealth()
         {
-            //_healthHUDView.UpdateMaxHealth(_characterDataSerivce.GetCharacterMaxHealth());
+            _healthHUDView.UpdateMaxHealth(_characterDataSerivce.GetCharacterMaxHealth());
             _healthHUDView.UpdateCurrentHealth(_characterDataSerivce.GetCharacterCurrentHealth());
         }
         public void UpdateBomb()
