@@ -47,7 +47,6 @@ namespace SotongStudio.Bomber.Gameplay.Enemy.Behaviour
         private void SetNewDestination()
         {
             var destination = GetWalkDestination();
-            Debug.Log($"Set New Dest :{destination}");
             _roamingBehaviourComponent.Agent.SetDestination(destination);
 
         }
