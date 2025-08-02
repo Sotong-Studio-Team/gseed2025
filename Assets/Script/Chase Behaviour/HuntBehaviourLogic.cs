@@ -59,12 +59,13 @@ namespace SotongStudio.Bomber.Gameplay.Enemy.Behaviour
         {
             for (int i = 0; i < 10;)
             {
-                if(_currentTarget != null ||
+                if (_currentTarget != null ||
                   !cancellationToken.IsCancellationRequested)
                 {
                     await UniTask.WaitForSeconds(0.3f, cancellationToken: cancellationToken);
                     _huntComponent.Agent.SetDestination(_currentTarget.Transform.position);
                 }
+                else { break; }
             }
         }
 

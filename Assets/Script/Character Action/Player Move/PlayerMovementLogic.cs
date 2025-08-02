@@ -1,5 +1,4 @@
 using SotongStudio.Bomber;
-using Unity.VisualScripting;
 using UnityEngine;
 using VContainer.Unity;
 
@@ -43,7 +42,7 @@ public class PlayerMovementLogic : IStartable
         _view.AnimatePlayer(_model.LastDirection, movement);
     }
 
-    public void TeleportPlayer(Vector3 newPos)
+    public void TeleportPlayer(Vector2 newPos)
     {
        _view.transform.position = newPos;
     }

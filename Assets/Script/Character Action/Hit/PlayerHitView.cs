@@ -5,7 +5,8 @@ using UnityEngine.Android;
 
 public class PlayerHitView : MonoBehaviour, IDamageable
 {
-    private SpriteRenderer _sprite;
+    [SerializeField]
+    private SpriteRenderer[] _sprites;
     private Collider2D _collider;
     private bool _isInvincible = false;
     [SerializeField] private float _invincibleDuration = 2f;
@@ -17,7 +18,7 @@ public class PlayerHitView : MonoBehaviour, IDamageable
 
     private void Awake()
     {
-        _sprite = GetComponent<SpriteRenderer>();
+        //_sprite = GetComponent<SpriteRenderer>();
         _collider = GetComponent<Collider2D>();
 
         _currentHP = _maxHP;
@@ -57,12 +58,18 @@ public class PlayerHitView : MonoBehaviour, IDamageable
 
         while (timer < _invincibleDuration)
         {
-            _sprite.enabled = !_sprite.enabled;
+            foreach (var sprite in _sprites)
+            {
+                sprite.enabled = !sprite.enabled;
+            }
             yield return new WaitForSeconds(_flashInterval);
             timer += _flashInterval;
         }
 
-        _sprite.enabled = true;
+        foreach (var sprite in _sprites)
+        {
+            sprite.enabled = true;
+        }
         _isInvincible = false;
         _collider.enabled = true;
     }

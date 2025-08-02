@@ -48,9 +48,7 @@ MonoBehaviour:
     TypeName: 
   autoRun: 1
   autoInjectGameObjects: []
-  _registerdScriptableObjects:
-  - {fileID: 11400000, guid: 50519956a1afbe54daa1386956fdc9ed, type: 2}
-  - {fileID: 11400000, guid: c658615238b05da458f840aa307936bb, type: 2}
+  _registerdScriptableObjects: []
   _predefinedCollection:
   - {fileID: 11400000, guid: 42c8e354ada78a44883d38df0269cd75, type: 2}
   - {fileID: 11400000, guid: 58d4b41303c18e141b1977e12890cf5e, type: 2}
