@@ -32,6 +32,11 @@ namespace SotongStudio.Bomber.Gameplay.DungeonObject.Enemy
             _hunterBehaviours.StartBehaviour();
         }
 
+        public override void TakeExplosionDamageProcess(int damage)
+        {
+            Debug.Log("Hunter Take Explosion damage");
+            Object.Destroy(gameObject);
+        }
         private void InternalSetup()
         {
             //Setup Visual
