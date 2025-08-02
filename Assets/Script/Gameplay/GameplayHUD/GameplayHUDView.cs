@@ -6,7 +6,7 @@ namespace SotongStudio.Bomber.Gameplay.HUD
     public interface IGameplayHUDView
     {
         // Define methods and properties that the GameplayHUDView should implement
-        void UpdateBombAmount(ushort bombAmount);
+        void UpdateBombAmount(int bombAmount);
         void UpdateCrystalAmount(int crystalAmount);
     }
     public class GameplayHUDView : MonoBehaviour, IGameplayHUDView
@@ -16,7 +16,7 @@ namespace SotongStudio.Bomber.Gameplay.HUD
 
         [SerializeField]
         private TMP_Text _bombAmountText;
-        public void UpdateBombAmount(ushort bombAmount)
+        public void UpdateBombAmount(int bombAmount)
         {
             _bombAmountText.text = bombAmount.ToString();
         }

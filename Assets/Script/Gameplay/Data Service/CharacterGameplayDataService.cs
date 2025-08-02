@@ -26,7 +26,7 @@ namespace SotongStudio.Bomber.Gameplay.Character.DataService
     {
         int GetCharacterMaxHealth();
         int GetCharacterCurrentHealth();
-        int GetCharacterSpeed();
+        float GetCharacterSpeed();
         int GetBombAmount();
         int GetMaxBombAmount();
 
@@ -49,7 +49,7 @@ namespace SotongStudio.Bomber.Gameplay.Character.DataService
         {
             return _characterStat.MaxHealth;
         }
-        public int GetCharacterSpeed()
+        public float GetCharacterSpeed()
         {
             return _characterStat.Speed;
         }

@@ -6,7 +6,7 @@ namespace SotongStudio.Bomber.Shared.Character
     {
         int Health { get; }
         int MaxHealth { get; }
-        int Speed { get; }
+        float Speed { get; }
         int BombAmount { get; }
         int MaxBombAmount { get; }
     }

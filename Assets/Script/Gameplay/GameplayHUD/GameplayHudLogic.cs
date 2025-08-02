@@ -37,8 +37,7 @@ namespace SotongStudio.Bomber.Gameplay.HUD
         }
         public void UpdateBomb()
         {
-            _hudView.UpdateBombAmount(1);
-            //(_characterDataSerivce.GetBombAmount());
+            _hudView.UpdateBombAmount(_characterDataSerivce.GetBombAmount());
         }
         public void UpdateCrystal()
         {
