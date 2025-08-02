@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7836f9d16fe39245ae2fb60629b42e8, type: 3}
   m_Name: Character Starter Config
   m_EditorClassIdentifier: 
-  _health: 3
+  _maxHealth: 3
   _speed: 2
-  _bombAmount: 1
+  _maxBombAmount: 1

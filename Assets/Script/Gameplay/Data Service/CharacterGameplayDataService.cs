@@ -4,6 +4,7 @@ namespace SotongStudio.Bomber.Gameplay.Character.DataService
 {
     public interface ICharacterGameplayUpdateService
     {
+        [System.Obsolete("Doesn't Need to Setup. Flow are Updated. This will Do Nothing")]
         void SetupCharacterStat(CharacterStatGameplay characterStat);
 
         void AddPlayerHealth(int amount);
@@ -14,9 +15,12 @@ namespace SotongStudio.Bomber.Gameplay.Character.DataService
 
         void AddPlayerSpeed(int amount);
         void ReducePlayerSpeed(int amount);
-        
+
         void AddBombAmount(int amount);
         void ReduceBombAmount(int amount);
+
+        void AddMaxBombAmount(int amount);
+        void ReduceMaxBombAmount(int amount);
     }
     public interface ICharacterGameplayDataService
     {
@@ -24,12 +28,18 @@ namespace SotongStudio.Bomber.Gameplay.Character.DataService
         int GetCharacterCurrentHealth();
         int GetCharacterSpeed();
         int GetBombAmount();
+        int GetMaxBombAmount();
 
     }
     public class CharacterGameplayDataService : ICharacterGameplayDataService, ICharacterGameplayUpdateService
     {
 
-        private CharacterStatGameplay _characterStat;
+        private readonly CharacterStatGameplay _characterStat;
+
+        public CharacterGameplayDataService(CharacterStarterConfigSO characterStat)
+        {
+            _characterStat = new(characterStat);
+        }
 
         public int GetCharacterCurrentHealth()
         {
@@ -43,17 +53,19 @@ namespace SotongStudio.Bomber.Gameplay.Character.DataService
         {
             return _characterStat.Speed;
         }
-
         public int GetBombAmount()
         {
             return _characterStat.BombAmount;
         }
+        public int GetMaxBombAmount()
+        {
+            return _characterStat.MaxBombAmount;
+        }
 
         public void SetupCharacterStat(CharacterStatGameplay characterStat)
         {
-            _characterStat = characterStat;
+            
         }
-
         public void AddPlayerHealth(int amount)
         {
             _characterStat.Health += amount;
@@ -88,7 +100,17 @@ namespace SotongStudio.Bomber.Gameplay.Character.DataService
 
         public void ReduceBombAmount(int amount)
         {
-            _characterStat.BombAmount -= Mathf.Min(amount, ThresholdConfig.CharacterSpeed);
+            _characterStat.BombAmount -= amount;
+        }
+
+        public void AddMaxBombAmount(int amount)
+        {
+            _characterStat.MaxBombAmount += amount;
+        }
+
+        public void ReduceMaxBombAmount(int amount)
+        {
+            _characterStat.BombAmount -= Mathf.Min(amount, ThresholdConfig.BombAmount);
         }
 
     }

@@ -29,13 +29,14 @@ namespace SotongStudio.Bomber.Gameplay.DungeonObject
         {
             gameObject.SetActive(false);
         }
-        public abstract void TakeExplosionDamageProcess(int damage);
+        public virtual void TakeExplosionDamageProcess(int damage)
+        {
+
+        }
         public virtual void InitializeProcess()
         {
 
         }
-
-
         public virtual void RemoveFromFieldProcess()
         {
 

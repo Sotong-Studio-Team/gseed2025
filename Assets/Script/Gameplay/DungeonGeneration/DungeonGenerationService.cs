@@ -3,12 +3,14 @@ using System.Linq;
 using SotongStudio.Bomber.Gameplay.DungeonGeneration.Data;
 using SotongStudio.Bomber.Shared.Dungeon.Cluster;
 using UnityEngine;
+using VContainer;
 
 namespace SotongStudio.Bomber.Gameplay.DungeonGeneration.Service
 {
     public interface IDungeonGenerationService
     {
         void GenerateDungeon(IDungeonConfig dungeonConfig);
+        Vector3 GetPlayerStartPos();
     }
     public class DungeonGenerationService : IDungeonGenerationService
     {
@@ -28,10 +30,14 @@ namespace SotongStudio.Bomber.Gameplay.DungeonGeneration.Service
 
         public void GenerateDungeon(IDungeonConfig dungeonConfig)
         {
+            CleanUpDungeon();
             var dungeonData = GenerateDungeonData(dungeonConfig);
             _generationLogic.GenerateDugeonObject(dungeonData);
             _generationLogic.UpdateNavigationSurface();
         }
+
+
+        public Vector3 GetPlayerStartPos() => _generationLogic.GetPlayerStartPos();
         private IDugeonGeneratedData GenerateDungeonData(IDungeonConfig dungeonConfig)
         {
             var allClusters = GetClusters();
@@ -130,8 +136,8 @@ namespace SotongStudio.Bomber.Gameplay.DungeonGeneration.Service
 
             foreach (var remainingPos in availablePlacement)
             {
-                var other = GenerateOther(remainingPos, 
-                                          dungeonConfig.EnemySpawnConfig, 
+                var other = GenerateOther(remainingPos,
+                                          dungeonConfig.EnemySpawnConfig,
                                           dungeonConfig.CoinSpawnConfig,
                                           dungeonConfig.EmptySpawnConfig);
                 result.Add(other);
@@ -172,9 +178,11 @@ namespace SotongStudio.Bomber.Gameplay.DungeonGeneration.Service
         {
             IDungeonSpawnRate selectedObj = null;
 
-            int randomNumber = Random.Range(1, 101);
+            var allValue = othersObject.Select(data => data.SpawnRate).Sum(op => op);
 
+            int randomNumber = Random.Range(1, allValue);
             int cumulativeChance = 0;
+
             foreach (var obj in othersObject)
             {
                 cumulativeChance += obj.SpawnRate;
@@ -242,5 +250,10 @@ namespace SotongStudio.Bomber.Gameplay.DungeonGeneration.Service
             return selectNumber <= selectedConfig.ObjectCoverChance;
         }
         #endregion
+
+        private void CleanUpDungeon()
+        {
+            _generationLogic.CleanUpDungeon();
+        }
     }
 }

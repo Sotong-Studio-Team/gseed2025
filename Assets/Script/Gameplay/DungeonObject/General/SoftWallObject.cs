@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace SotongStudio.Bomber.Gameplay.DungeonObject
 {
-    public interface ISoftWallObject : IDungeonObject
+    public interface ISoftWallObject : IDungeonObject, IDamageable
     {
         void SetLinkedObject(IDungeonObject linkedObject);
     }
@@ -17,6 +17,11 @@ namespace SotongStudio.Bomber.Gameplay.DungeonObject
             OnDestroyedObject.AddListener(RevealLinkedTarget);
         }
 
+        public void Damage(int amount)
+        {
+            TakeExplosionDamageProcess(amount);
+            Debug.Log("Take damage");
+        }
         public override void TakeExplosionDamageProcess(int damage)
         {
             gameObject.SetActive(false);
@@ -41,5 +46,6 @@ namespace SotongStudio.Bomber.Gameplay.DungeonObject
 
             base.RemoveFromFieldProcess();
         }
+
     }
 }

@@ -8,6 +8,9 @@ namespace SotongStudio.Bomber.Gameplay.DungeonObject.DropItem
     }   
     public class CrystalDropItem : DropItem, ICrystalDropItem
     {
-    
+        public override void OnPickUpProcess()
+        {
+            base.OnPickUpProcess();
+        }
     }
 }

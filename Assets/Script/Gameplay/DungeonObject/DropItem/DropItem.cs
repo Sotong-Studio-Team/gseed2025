@@ -1,6 +1,6 @@
 namespace SotongStudio.Bomber.Gameplay.DungeonObject.DropItem
 {
-    public interface IDropItem : IDungeonObject
+    public interface IDropItem : IDungeonObject, IPickable
     {
         void OnPickUpProcess();
     }
@@ -8,7 +8,12 @@ namespace SotongStudio.Bomber.Gameplay.DungeonObject.DropItem
     {
         public virtual void OnPickUpProcess()
         {
-            
+            Destroy(gameObject);
+        }
+
+        public void PickUp()
+        {
+            OnPickUpProcess();
         }
 
         public override void TakeExplosionDamageProcess(int damage)

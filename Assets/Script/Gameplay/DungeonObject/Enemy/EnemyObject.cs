@@ -1,14 +1,15 @@
 namespace SotongStudio.Bomber.Gameplay.DungeonObject.Enemy
 {
-    public interface IEnemyObject : IDungeonObject
+    public interface IEnemyObject : IDungeonObject, IDamageable
     {
 
     }
     public class EnemyObject : DungeonObject, IEnemyObject
     {
-        public override void TakeExplosionDamageProcess(int damage)
+        public void Damage(int amount)
         {
-            // Calculate Damage
+            TakeExplosionDamageProcess(amount);
         }
+
     }
 }

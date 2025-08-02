@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using UnityEditor;
 
 namespace SotongStudio.Bomber.Gameplay.DungeonGeneration.Data
 {
@@ -32,12 +34,24 @@ namespace SotongStudio.Bomber.Gameplay.DungeonGeneration.Data
             EmptySpawnConfig = emptySpawnConfig;
         }
 
-        public static IDungeonConfig CretaeDungeonData(DungeonConfigSO dungeonConfigSO)
+        private IDungeonConfig SetDungeonLevel(DungeonConfigSO dungeonConfigSO, int level)
         {
-            return new DungeonConfig(dungeonConfigSO.OtherPortalSpawnRate,
+            if (level % dungeonConfigSO.IncreaseSapawnCoin == 0) { CoinSpawnConfig.AddWeight((ushort)(dungeonConfigSO.IncreaseSapawnCoin * level)); }
+            if (level % dungeonConfigSO.IncreaseRateEmpty == 0) { CoinSpawnConfig.AddWeight((ushort)(dungeonConfigSO.IncreaseRateEmpty * level)); }
+            if (level % dungeonConfigSO.IncreaseRateEnemy == 0) { CoinSpawnConfig.AddWeight((ushort)(dungeonConfigSO.IncreaseSapawnEnemy * level)); }
+
+
+            return this;
+        }
+
+        public static IDungeonConfig CretaeDungeonData(DungeonConfigSO dungeonConfigSO, int level = 1)
+        {
+            var dungeonConfig = new DungeonConfig(dungeonConfigSO.OtherPortalSpawnRate,
                                      dungeonConfigSO.EnemySpawnRate,
                                      dungeonConfigSO.CoinSpawnRate,
                                      dungeonConfigSO.EmptySpawnRate);
+
+            return dungeonConfig.SetDungeonLevel(dungeonConfigSO, level);
         }
     }
 }
