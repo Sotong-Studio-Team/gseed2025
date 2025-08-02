@@ -1,4 +1,5 @@
 using Cysharp.Threading.Tasks;
+using SotongStudio.Utilities.AudioSystem;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -23,7 +24,9 @@ namespace SotongStudio.Bomber
 
         IEnumerator BombCountdownCo()
         {
+            BasicAudioSystem.Instance.PlaySFX("sumbu bomv2");
             yield return new WaitForSeconds(_view.BombDuration);
+            BasicAudioSystem.Instance.PlaySFX("ledakan");
             _view.HideBomb();
 
             SetExplosionLine();
