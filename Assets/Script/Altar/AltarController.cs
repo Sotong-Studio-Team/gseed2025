@@ -33,31 +33,35 @@ namespace SotongStudio.Bomber
 
         private bool isPopupShown = false;
 
-        // Menyimpan opsi saat ini
+        
         private AltarStatUpgrade.PlayerStatType _currentOption1;
         private AltarStatUpgrade.PlayerStatType _currentOption2;
-
+        
         [Inject]
         public void Inject(
             IBombGameplayUpdateService bombUpdateService,
             IBombGameplayDataService bombDataService,
-            ICharacterGameplayUpdateService charUpdateService)
+            ICharacterGameplayUpdateService charUpdateService,
+            ICharacterGameplayDataService charDataService) 
         {
             _bombUpdateService = bombUpdateService;
             _bombDataService = bombDataService;
             _charUpdateService = charUpdateService;
+            _charDataService = charDataService; 
         }
+
 
 
         private void Update()
         {
+            //TESTING dengan inputan : A
             if (Input.GetKeyDown(KeyCode.A) && !isPopupShown)
             {
                 ShowAltar();
             }
         }
-
-        private void ShowAltar()
+        
+        public void ShowAltar() // fungsi yang akan dipanggil untuk mengshow sekaligus merandom stat yang disediakan. 
         {
             isPopupShown = true;
             altarPopupUI.SetActive(true);
@@ -68,20 +72,25 @@ namespace SotongStudio.Bomber
 
             altarUI.Init(_currentOption1, _currentOption2, this);
         }
-
-        public void OnOptionSelected(AltarStatUpgrade.PlayerStatType selectedStat)
+        
+        public void DisableAltar() // fungsi yang akan dipanggil untuk menghilangkan altar. 
         {
-            IncreaseStat(selectedStat);
+            isPopupShown = false;
+            altarPopupUI.SetActive(false);
+        }
 
-            // Decrease stat yang tidak dipilih
-            var decreaseStat = (selectedStat == _currentOption1) ? _currentOption2 : _currentOption1;
-            DecreaseStat(decreaseStat);
+        public void OnOptionSelected(AltarStatUpgrade.PlayerStatType increasedStat) // option terpilih
+        {
+            var decreasedStat = (increasedStat == _currentOption1) ? _currentOption2 : _currentOption1;
+
+            IncreaseStat(increasedStat);
+            DecreaseStat(decreasedStat);
 
             altarPopupUI.SetActive(false);
             isPopupShown = false;
         }
 
-        private void IncreaseStat(AltarStatUpgrade.PlayerStatType stat)
+        private void IncreaseStat(AltarStatUpgrade.PlayerStatType stat) // untuk meningkatkan stat
         {
             switch (stat)
             {
@@ -89,7 +98,7 @@ namespace SotongStudio.Bomber
                     _bombUpdateService.AddBombRange(1);
                     break;
                 case AltarStatUpgrade.PlayerStatType.BombCount:
-                    _bombUpdateService.AddBombDamage(1); // Ubah ke AddBombCount jika ada
+                    _charUpdateService.AddBombAmount(1); // Ubah ke AddBombCount jika ada
                     break;
                 case AltarStatUpgrade.PlayerStatType.MovementSpeed:
                     _charUpdateService.AddPlayerSpeed(1);
@@ -100,7 +109,7 @@ namespace SotongStudio.Bomber
             }
         }
 
-        private void DecreaseStat(AltarStatUpgrade.PlayerStatType stat)
+        private void DecreaseStat(AltarStatUpgrade.PlayerStatType stat) // untuk decrease stat
         {
             switch (stat)
             {
