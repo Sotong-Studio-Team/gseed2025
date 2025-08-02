@@ -22,7 +22,6 @@ namespace SotongStudio.Bomber
             builder.RegisterComponent(_playerInputView);
             builder.RegisterComponent(_playerBombView);
             builder.RegisterComponent(_playerHitView);
-            builder.Register<PlayerMovementModel>(Lifetime.Singleton);
         }
     }
 }

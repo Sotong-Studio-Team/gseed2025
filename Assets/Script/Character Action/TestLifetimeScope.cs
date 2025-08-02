@@ -16,6 +16,5 @@ public class TestLifetimeScope : LifetimeScope
         builder.RegisterComponent(_playerMovementView);
         builder.RegisterComponent(_playerInputView);
 
-        builder.Register<PlayerMovementModel>(Lifetime.Singleton);
     }
 }
