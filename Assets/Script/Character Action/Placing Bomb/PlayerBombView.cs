@@ -1,30 +1,42 @@
 using System.Collections;
+using SotongStudio.Bomber.Gameplay.Bomb;
+using SotongStudio.Bomber.Gameplay.Character.DataService;
+using SotongStudio.Bomber.Gameplay.Character;
+using SotongStudio.Bomber.Gameplay.Inventory;
 using SotongStudio.Utilities.Vector2Helper;
 using UnityEngine;
 using UnityEngine.Events;
+using VContainer;
+using SotongStudio.Bomber.Gameplay.Bomb.Data;
 
 public class PlayerBombView : MonoBehaviour
 {
     //[SerializeField] private GridForBomb _grid;
 
+    private ICharacterGameplayDataService _characterDataService;
+    private ICharacterGameplayUpdateService _characterDataUpdate;
+    private IBombGameplayDataService _bombDataService;
+
+    [Inject]
+    public void Inject(ICharacterGameplayDataService characterDataService, ICharacterGameplayUpdateService characterDataUpdate, 
+                       IBombGameplayDataService bombDataService)
+    {
+        _characterDataService = characterDataService;
+        _characterDataUpdate = characterDataUpdate;
+
+        _bombDataService = bombDataService;
+    }
+
     [SerializeField] private GameObject _bombPrefab;
-    [SerializeField] private int _maxAmount= 1;
-    [SerializeField] private float _bombCooldown = 1.5f;
     [SerializeField] private Transform _bombPlacement;
-    private int _currentAmount;
 
     public UnityEvent OnBombDeployed;
 
-    private void Start()
-    {
-        _currentAmount = _maxAmount;
-    }
-
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && _currentAmount > 0)
+        if (Input.GetKeyDown(KeyCode.Space) && _characterDataService.GetBombAmount() > 0)
         {
-            _currentAmount--;
+            _characterDataUpdate.ReduceBombAmount(1);
             PlaceBomb(transform.position);
             StartCoroutine(BombCooldownCo());
         }
@@ -40,7 +52,7 @@ public class PlayerBombView : MonoBehaviour
 
     IEnumerator BombCooldownCo()
     {
-        yield return new WaitForSeconds(_bombCooldown);
-        _currentAmount++;
+        yield return new WaitForSeconds(_bombDataService.GetBombUseCooldown());
+        _characterDataUpdate.AddBombAmount(1);
     }
 }

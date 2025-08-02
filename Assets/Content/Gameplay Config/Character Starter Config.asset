@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 3
   _speed: 2
-  _bombAmount: 1
+  _maxBombAmount: 1

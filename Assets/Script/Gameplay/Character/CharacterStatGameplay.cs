@@ -8,6 +8,7 @@ namespace SotongStudio.Bomber.Gameplay.Character
         public int MaxHealth { get; set; }
         public int Speed { get; set; }
         public int BombAmount { get; set; }
+        public int MaxBombAmount { get; set; }
 
         public CharacterStatGameplay(int health, int speed, int bombAmount)
         {
@@ -22,6 +23,7 @@ namespace SotongStudio.Bomber.Gameplay.Character
             MaxHealth = characterStat.MaxHealth;
             Speed = characterStat.Speed;
             BombAmount = characterStat.BombAmount;
+            MaxBombAmount = characterStat.MaxBombAmount;
         }
     }
 }

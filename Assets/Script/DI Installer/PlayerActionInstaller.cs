@@ -10,12 +10,18 @@ namespace SotongStudio.Bomber
         private PlayerMovementView _playerMovementView;
         [SerializeField] 
         private PlayerInputView _playerInputView;
+        [SerializeField]
+        private PlayerBombView _playerBombView;
+        [SerializeField]
+        private PlayerHitView _playerHitView;
 
         public override void Install(IContainerBuilder builder)
         {
             builder.RegisterEntryPoint<PlayerMovementLogic>().AsSelf();
             builder.RegisterComponent(_playerMovementView);
             builder.RegisterComponent(_playerInputView);
+            builder.RegisterComponent(_playerBombView);
+            builder.RegisterComponent(_playerHitView);
             builder.Register<PlayerMovementModel>(Lifetime.Singleton);
         }
     }
