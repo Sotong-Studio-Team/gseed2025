@@ -32,7 +32,7 @@ public class PlayerBombView : MonoBehaviour
 
     private void PlaceBomb(Vector2 point)
     {
-        var finalPosition = WorldSnappingPos.SnapWorldPosition(point);
+        var finalPosition = WorldSnappingPos.SnapWorldPosition(point) - (Vector2.up/2);
             //_grid.GetNearestPointOnGrid(point);
         var createdBomb = Instantiate(_bombPrefab, finalPosition, Quaternion.identity);
         createdBomb.transform.parent = _bombPlacement;
