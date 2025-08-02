@@ -30,15 +30,14 @@ namespace SotongStudio.Bomber.Gameplay.HUD
             _inventoryDataService = inventoryDataService;
 
         }
-        public void UpdateHealth()
+        public void UpdateHealth()  
         {
-            //_healthHUDView.UpdateMaxHealth(_characterDataSerivce.GetCharacterMaxHealth());
+            _healthHUDView.UpdateMaxHealth(_characterDataSerivce.GetCharacterMaxHealth());
             _healthHUDView.UpdateCurrentHealth(_characterDataSerivce.GetCharacterCurrentHealth());
         }
         public void UpdateBomb()
         {
-            _hudView.UpdateBombAmount(1);
-            //(_characterDataSerivce.GetBombAmount());
+            _hudView.UpdateBombAmount(_characterDataSerivce.GetBombAmount());
         }
         public void UpdateCrystal()
         {

@@ -52,14 +52,14 @@ namespace SotongStudio.Bomber
 
 
 
-        private void Update()
-        {
-            //TESTING dengan inputan : A
-            if (Input.GetKeyDown(KeyCode.A) && !isPopupShown)
-            {
-                ShowAltar();
-            }
-        }
+        //private void Update()
+        //{
+        //    //TESTING dengan inputan : A
+        //    if (Input.GetKeyDown(KeyCode.A) && !isPopupShown)
+        //    {
+        //        ShowAltar();
+        //    }
+        //}
         
         public void ShowAltar() // fungsi yang akan dipanggil untuk mengshow sekaligus merandom stat yang disediakan. 
         {

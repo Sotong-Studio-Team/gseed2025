@@ -14,7 +14,7 @@ namespace SotongStudio.Bomber
         {
             builder.Register<LevelManager>(Lifetime.Singleton).As<ILevelManager>()
                    .WithParameter(_levelManagerData);
-            builder.RegisterEntryPoint<MainGameFlowControl>(Lifetime.Singleton).As<IInitializable>();
+            builder.RegisterEntryPoint<MainGameFlowControl>(Lifetime.Singleton).As<IPostStartable>();
         }
     }
 }

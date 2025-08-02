@@ -1,6 +1,7 @@
 using SotongStudio.Bomber;
 using SotongStudio.Bomber.Gameplay.Bomb;
 using SotongStudio.Bomber.Gameplay.Character.DataService;
+using SotongStudio.Bomber.Gameplay.HUD;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Android;
@@ -10,12 +11,16 @@ public class PlayerHitView : MonoBehaviour, IDamageable
 {
     private ICharacterGameplayDataService _characterDataService;
     private ICharacterGameplayUpdateService _characterDataUpdate;
+    private IGameplayHudLogic _gameplayHUD;
 
     [Inject]
-    public void Inject(ICharacterGameplayDataService characterDataService, ICharacterGameplayUpdateService characterDataUpdate)
+    public void Inject(ICharacterGameplayDataService characterDataService,
+                       ICharacterGameplayUpdateService characterDataUpdate,
+                       IGameplayHudLogic gameplayHUD)
     {
         _characterDataService = characterDataService;
         _characterDataUpdate = characterDataUpdate;
+        _gameplayHUD = gameplayHUD;
     }
 
     [SerializeField]
@@ -46,6 +51,7 @@ public class PlayerHitView : MonoBehaviour, IDamageable
         {
             _characterDataUpdate.ReducePlayerHealth(amount);
             Debug.Log($"Player health = {_characterDataService.GetCharacterCurrentHealth()}/{_characterDataService.GetCharacterMaxHealth()}");
+            _gameplayHUD.UpdateHealth();
             StartCoroutine(InvincibleCo());
         }
     }

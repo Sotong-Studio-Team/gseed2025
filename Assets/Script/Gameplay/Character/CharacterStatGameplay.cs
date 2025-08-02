@@ -6,7 +6,7 @@ namespace SotongStudio.Bomber.Gameplay.Character
     {
         public int Health { get; set; }
         public int MaxHealth { get; set; }
-        public int Speed { get; set; }
+        public float Speed { get; set; }
         public int BombAmount { get; set; }
         public int MaxBombAmount { get; set; }
 

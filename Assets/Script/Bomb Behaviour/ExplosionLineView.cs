@@ -14,6 +14,8 @@ namespace SotongStudio.Bomber
 
         private Collider2D _collider;
 
+        [SerializeField] private GameObject _bobmVisual;
+
         private void Start()
         {
             _collider = GetComponent<Collider2D>();
@@ -21,7 +23,7 @@ namespace SotongStudio.Bomber
 
         public void HideBomb()
         {
-            GetComponent<SpriteRenderer>().enabled = false;
+            _bobmVisual.SetActive(false);
             _collider.enabled = false;
         }
 
@@ -48,10 +50,10 @@ namespace SotongStudio.Bomber
                 var hitedObject = hit.collider.GetComponent<IDamageable>();
                 if (hitedObject != null)
                 {
-                    _isHitWall = true;
                     hitedObject.Damage(1); // Assuming damage amount is 1
                     Debug.Log("Hit object: " + hit.collider.name);
                 }
+                _isHitWall = true;
             }
         }
     }

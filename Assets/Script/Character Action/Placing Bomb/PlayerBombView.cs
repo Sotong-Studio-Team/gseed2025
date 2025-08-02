@@ -1,13 +1,11 @@
 using System.Collections;
 using SotongStudio.Bomber.Gameplay.Bomb;
 using SotongStudio.Bomber.Gameplay.Character.DataService;
-using SotongStudio.Bomber.Gameplay.Character;
-using SotongStudio.Bomber.Gameplay.Inventory;
+using SotongStudio.Bomber.Gameplay.HUD;
 using SotongStudio.Utilities.Vector2Helper;
 using UnityEngine;
 using UnityEngine.Events;
 using VContainer;
-using SotongStudio.Bomber.Gameplay.Bomb.Data;
 
 public class PlayerBombView : MonoBehaviour
 {
@@ -15,16 +13,21 @@ public class PlayerBombView : MonoBehaviour
 
     private ICharacterGameplayDataService _characterDataService;
     private ICharacterGameplayUpdateService _characterDataUpdate;
+    private IGameplayHudLogic _hudLogic;
     private IBombGameplayDataService _bombDataService;
 
     [Inject]
-    public void Inject(ICharacterGameplayDataService characterDataService, ICharacterGameplayUpdateService characterDataUpdate, 
-                       IBombGameplayDataService bombDataService)
+    public void Inject(ICharacterGameplayDataService characterDataService,
+                       ICharacterGameplayUpdateService characterDataUpdate,
+                       IBombGameplayDataService bombDataService,
+                       IGameplayHudLogic hudLogic)
     {
         _characterDataService = characterDataService;
+        _bombDataService = bombDataService;
         _characterDataUpdate = characterDataUpdate;
 
-        _bombDataService = bombDataService;
+        _hudLogic = hudLogic;
+
     }
 
     [SerializeField] private GameObject _bombPrefab;
@@ -37,6 +40,7 @@ public class PlayerBombView : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && _characterDataService.GetBombAmount() > 0)
         {
             _characterDataUpdate.ReduceBombAmount(1);
+            _hudLogic.UpdateBomb();
             PlaceBomb(transform.position);
             StartCoroutine(BombCooldownCo());
         }
@@ -44,8 +48,8 @@ public class PlayerBombView : MonoBehaviour
 
     private void PlaceBomb(Vector2 point)
     {
-        var finalPosition = WorldSnappingPos.SnapWorldPosition(point) - (Vector2.up/2);
-            //_grid.GetNearestPointOnGrid(point);
+        var finalPosition = WorldSnappingPos.SnapWorldPosition(point + (Vector2.up/2));
+        //_grid.GetNearestPointOnGrid(point);
         var createdBomb = Instantiate(_bombPrefab, finalPosition, Quaternion.identity);
         createdBomb.transform.parent = _bombPlacement;
     }
@@ -54,5 +58,6 @@ public class PlayerBombView : MonoBehaviour
     {
         yield return new WaitForSeconds(_bombDataService.GetBombUseCooldown());
         _characterDataUpdate.AddBombAmount(1);
+        _hudLogic.UpdateBomb();
     }
 }
