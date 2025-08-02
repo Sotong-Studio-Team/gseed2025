@@ -1,8 +1,6 @@
-using NaughtyAttributes;
-using SotongStudio.Bomber.Gameplay.Bomb.Data;
 using SotongStudio.Bomber.Gameplay.Bomb;
-using SotongStudio.Bomber.Gameplay.Character.DataService;
 using SotongStudio.Bomber.Gameplay.Character;
+using SotongStudio.Bomber.Gameplay.Character.DataService;
 using SotongStudio.Bomber.Gameplay.Inventory;
 using UnityEngine;
 using VContainer;
@@ -42,15 +40,15 @@ namespace SotongStudio.Bomber
             _inventoryDataService = inventoryDataService;
             _inventoryDataUpdate = inventoryDataUpdate;
 
-        }
-        
-        public void Setup()
-        {
-            _characterDataUpdate.SetupCharacterStat(new CharacterStatGameplay(_characterStat));
-            _bombDataUpdate.SetupBombStat(new BombStat(_bombStat));
-
             _inventoryDataUpdate.AddOwnedCrystal(30);
         }
+        
+        //public void Setup()
+        //{
+        //    //_characterDataUpdate.SetupCharacterStat(new CharacterStatGameplay(_characterStat));
+        //    //_bombDataUpdate.SetupBombStat(new BombStat(_bombStat));
+
+        //}
 
         public void Heal()
         {

@@ -4,7 +4,7 @@ using VContainer.Unity;
 
 namespace SotongStudio.Bomber.Gameplay
 {
-    public class MainGameFlowControl : IInitializable
+    public class MainGameFlowControl : IPostStartable
     {
         private readonly ILevelManager _levelManager;
         private readonly IGameplayHudLogic _gamePlayHudLogic;
@@ -16,7 +16,7 @@ namespace SotongStudio.Bomber.Gameplay
             _gamePlayHudLogic = hudLogic;
         }
 
-        void IInitializable.Initialize()
+        public void PostStart()
         {
             _gamePlayHudLogic.UpdateHealth();
             _gamePlayHudLogic.UpdateBomb();

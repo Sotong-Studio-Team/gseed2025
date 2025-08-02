@@ -1,5 +1,7 @@
+using SotongStudio.Bomber.Gameplay.HUD;
 using TMPro;
 using UnityEngine;
+using VContainer;
 
 namespace SotongStudio.Bomber
 {
@@ -19,12 +21,13 @@ namespace SotongStudio.Bomber
         private int _speedPrice = 5;
         private int _bombPrice = 10;
         private int _explosionPrice = 5;
+        private IGameplayHudLogic _gameplayHUD;
 
         private void Start()
         {
             _view.HideUI();
             OpenShopItems();
-            _data.Setup();
+            //_data.Setup();
 
             _view.OnHealBought.AddListener(BuyHeal);
             _view.OnMaxHPBought.AddListener(BuyMaxHP);
@@ -38,7 +41,13 @@ namespace SotongStudio.Bomber
             _bombPriceText.text = _bombPrice.ToString();
             _explosionPriceText.text = _explosionPrice.ToString();
 
-            _data.PrintStat();
+            //_data.PrintStat();
+        }
+
+        [Inject]
+        private void Inject(IGameplayHudLogic gameplayHUD)
+        {
+            _gameplayHUD = gameplayHUD;
         }
 
         private void OpenShopItems()
@@ -54,6 +63,7 @@ namespace SotongStudio.Bomber
             if (_data.GetCurrency() >= price)
             {
                 _data.BuyingSucceed(price);
+                _gameplayHUD.UpdateCrystal();
                 return true;
             }
             else return false;

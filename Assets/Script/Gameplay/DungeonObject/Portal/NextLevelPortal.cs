@@ -1,4 +1,4 @@
-using SotongStudio.Bomber.Gameplay.LevelManager;
+using SotongStudio.Bomber.Gameplay.Transition;
 using VContainer;
 
 namespace SotongStudio.Bomber.Gameplay.DungeonObject.Portal
@@ -9,17 +9,17 @@ namespace SotongStudio.Bomber.Gameplay.DungeonObject.Portal
     }   
     public class NextLevelPortal : PortalObject, INextLevelPortal
     {
-        private ILevelManager _levelManager;
+        private ITransitionController _transitionController;
 
         [Inject]
-        private void Inject(ILevelManager levelManager)
+        private void Inject(ITransitionController transitionController)
         {
-            _levelManager = levelManager;
+            _transitionController = transitionController;
         }
 
         public override void RecivePlayerInteractionProcess()
         {
-            _levelManager.StartLevel();
+            _transitionController.MoveToNextLevel();
         }
 
 
