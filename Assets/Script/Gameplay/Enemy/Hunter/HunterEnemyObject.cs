@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace SotongStudio.Bomber.Gameplay.DungeonObject.Enemy
@@ -34,8 +35,15 @@ namespace SotongStudio.Bomber.Gameplay.DungeonObject.Enemy
 
         public override void TakeExplosionDamageProcess(int damage)
         {
-            Debug.Log("Hunter Take Explosion damage");
-            Destroy(gameObject);
+            var spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+            var materials = new Material[spriteRenderers.Length];
+
+            for (int i = 0; i < spriteRenderers.Length; i++)
+            {
+                materials[i] = spriteRenderers[i].material;
+            }
+
+            StartCoroutine(PlayVanishThenDestroy(materials));
         }
         private void InternalSetup()
         {
@@ -46,6 +54,13 @@ namespace SotongStudio.Bomber.Gameplay.DungeonObject.Enemy
         public void Update()
         {
             Visual.FlipVisualToRight(_hunterBehaviours._handledAgent.velocity.x > 0);
+        }
+        private IEnumerator PlayVanishThenDestroy(Material[] materials)
+        {
+            yield return ShaderController.Vanish(materials);
+
+            gameObject.SetActive(false);
+            OnDestroyedObject.Invoke();
         }
     }
 }
