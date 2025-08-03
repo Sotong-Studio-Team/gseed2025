@@ -66,7 +66,7 @@ namespace SotongStudio.Bomber.Gameplay.Transition
             _transitionComponent.ConfinerCamera.BoundingShape2D = _marketTransitionComponent.CameraBound;
             _playerMoveLogic.TeleportPlayer(_marketTransitionComponent.SpawnPos.position);
 
-            await UniTask.WaitForSeconds(0.5f);
+            await UniTask.WaitForSeconds(1f);
             await PLayEndTransitionAnimation();
         }
 
@@ -104,7 +104,7 @@ namespace SotongStudio.Bomber.Gameplay.Transition
             _transitionComponent.ConfinerCamera.BoundingShape2D = _transitionComponent.MainMapCameraBound;
             _playerMoveLogic.TeleportPlayer(_returnPos.Value);
 
-            await UniTask.WaitForSeconds(0.5f);
+            await UniTask.WaitForSeconds(1f);
             await PLayEndTransitionAnimation();
 
             _returnPos = null;
