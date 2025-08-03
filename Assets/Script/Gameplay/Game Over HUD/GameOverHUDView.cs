@@ -28,11 +28,11 @@ namespace SotongStudio.Bomber
         public UnityEvent OnPlayAgain => _playAgainButton.onClick;
         public void SetCrystalCount(int count)
         {
-            _crystalText.text = $"x{count}";
+            _crystalText.text = $"and collected x{count}";
         }
         public void SetClearAmount(int clearAmount)
         {
-            _clearAmount.text = $"Cleared: {clearAmount} Time(s)";
+            _clearAmount.text = $"You have accompanied ALICE for around {clearAmount} Levels,";
         }
 
         public void Show()
