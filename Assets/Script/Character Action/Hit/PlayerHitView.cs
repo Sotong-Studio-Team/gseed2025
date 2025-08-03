@@ -5,7 +5,7 @@ using SotongStudio.Bomber.Gameplay.HUD;
 using UnityEngine;
 using VContainer;
 
-public class PlayerHitView : MonoBehaviour, IDamageable
+public class PlayerHitView : MonoBehaviour, IDamageable, IDamageablePlayer
 {
     private ICharacterGameplayDataService _characterDataService;
     private ICharacterGameplayUpdateService _characterDataUpdate;
@@ -35,6 +35,10 @@ public class PlayerHitView : MonoBehaviour, IDamageable
     {
         //_sprite = GetComponent<SpriteRenderer>();
         _collider = GetComponent<Collider2D>();
+    }
+    void IDamageablePlayer.TakeDamage(int amount)
+    {
+        Damage(amount);
     }
 
     public void Damage(int amount)
