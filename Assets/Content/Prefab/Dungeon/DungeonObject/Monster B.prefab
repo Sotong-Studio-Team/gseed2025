@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _huntBehavComponent: {fileID: 77120720425328067}
   _roamBehavComponent: {fileID: 6937803218359002156}
+  _handledAgent: {fileID: 7302596254937095210}
 --- !u!1 &5441126477123982704
 GameObject:
   m_ObjectHideFlags: 0
