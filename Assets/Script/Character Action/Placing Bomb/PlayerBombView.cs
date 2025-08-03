@@ -16,12 +16,14 @@ public class PlayerBombView : MonoBehaviour
     private ICharacterGameplayUpdateService _characterDataUpdate;
     private IGameplayHudLogic _hudLogic;
     private IBombGameplayDataService _bombDataService;
+    private IObjectResolver _objectResolver;
 
     [Inject]
     public void Inject(ICharacterGameplayDataService characterDataService,
                        ICharacterGameplayUpdateService characterDataUpdate,
                        IBombGameplayDataService bombDataService,
-                       IGameplayHudLogic hudLogic)
+                       IGameplayHudLogic hudLogic,
+                       IObjectResolver objectResolver)
     {
         _characterDataService = characterDataService;
         _bombDataService = bombDataService;
@@ -29,9 +31,11 @@ public class PlayerBombView : MonoBehaviour
 
         _hudLogic = hudLogic;
 
+        _objectResolver = objectResolver;
+
     }
 
-    [SerializeField] private GameObject _bombPrefab;
+    [SerializeField] private ExplosionLineControl _bombPrefab;
     [SerializeField] private Transform _bombPlacement;
 
     [SerializeField] private Vector3 _bombOffset = new (0,0.5f,0);
@@ -44,13 +48,10 @@ public class PlayerBombView : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space) && _characterDataService.GetBombAmount() > 0)
         {
-            if (!IsWallDetected())
-            {
-                _characterDataUpdate.ReduceBombAmount(1);
-                _hudLogic.UpdateBomb();
-                PlaceBomb();
-                StartCoroutine(BombCooldownCo());
-            }
+            _characterDataUpdate.ReduceBombAmount(1);
+            _hudLogic.UpdateBomb();
+            PlaceBomb();
+            StartCoroutine(BombCooldownCo());
         }
     }
 
@@ -73,10 +74,16 @@ public class PlayerBombView : MonoBehaviour
 
     private void PlaceBomb()
     {
-        _finalPosition = WorldSnappingPos.SnapWorldPosition(transform.position - _bombOffset);
+        _finalPosition = WorldSnappingPos.SnapWorldPosition(transform.position + _bombOffset);
+        if (IsWallDetected() && transform.position.y > _finalPosition.y)
+        {
+            _finalPosition.y++;
+        }
         //_grid.GetNearestPointOnGrid(point);
-        var createdBomb = Instantiate(_bombPrefab, _finalPosition + _bombOffset, Quaternion.identity);
+        var createdBomb = Instantiate(_bombPrefab, _finalPosition - _bombOffset, Quaternion.identity);
         createdBomb.transform.parent = _bombPlacement;
+
+        _objectResolver.Inject(createdBomb);
     }
 
     IEnumerator BombCooldownCo()

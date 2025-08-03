@@ -1,16 +1,25 @@
 using Cysharp.Threading.Tasks;
+using SotongStudio.Bomber.Gameplay.Bomb;
 using SotongStudio.Utilities.AudioSystem;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UIElements;
+using VContainer;
 using VContainer.Unity;
 
 namespace SotongStudio.Bomber
 {
     public class ExplosionLineControl : MonoBehaviour
     {
-        [SerializeField] private ExplosionLineView _view;
+        private IBombGameplayDataService _bombDataService;
 
+        [Inject]
+        public void Inject(IBombGameplayDataService bombDataService, IObjectResolver objectResolver)
+        {
+            _bombDataService = bombDataService;
+        }
+
+        [SerializeField] private ExplosionLineView _view;
 
         private void Start()
         {
@@ -25,7 +34,7 @@ namespace SotongStudio.Bomber
         IEnumerator BombCountdownCo()
         {
             BasicAudioSystem.Instance.PlaySFX("sumbu bomv2");
-            yield return new WaitForSeconds(_view.BombDuration);
+            yield return new WaitForSeconds(_bombDataService.GetBombExplosionDelay());
             BasicAudioSystem.Instance.PlaySFX("ledakan");
             _view.HideBomb();
 
@@ -47,7 +56,7 @@ namespace SotongStudio.Bomber
             //extension & end
             for (int i = 0; i < 4; i++)
             {
-                for (int j = 1; j <= _view.BombLength; j++)
+                for (int j = 1; j <= _bombDataService.GetBombRange(); j++)
                 {
                     if (i == 0)
                     {
@@ -71,7 +80,7 @@ namespace SotongStudio.Bomber
                     }
 
                     //ganti prefab ledakan
-                    if (j == _view.BombLength)
+                    if (j == _bombDataService.GetBombRange())
                     {
                         prefabIndex = 2;
                     }
@@ -114,7 +123,7 @@ namespace SotongStudio.Bomber
 
         IEnumerator ExplosionCountdownCo()
         {
-            yield return new WaitForSeconds(_view.ExplosionDuration);
+            yield return new WaitForSeconds(_bombDataService.GetBombExplosionDuration());
             _view.DestroyBomb();
         }
 
