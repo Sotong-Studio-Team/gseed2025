@@ -31,9 +31,9 @@ MonoBehaviour:
   _emptySpawnRate:
     <DungeonObjectId>k__BackingField: DUN-OBJ-EMPTY
     <SpawnRate>k__BackingField: 90
-  IncreaseSapawnEnemy: 10
+  IncreaseSapawnEnemy: 5
   IncreaseRateEnemy: 3
   IncreaseSapawnCoin: 10
   IncreaseRateCoin: 5
-  IncreaseSapawnEmpty: 10
+  IncreaseSapawnEmpty: 15
   IncreaseRateEmpty: 5
