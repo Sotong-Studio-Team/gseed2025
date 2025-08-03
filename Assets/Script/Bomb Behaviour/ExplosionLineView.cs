@@ -1,14 +1,15 @@
+using SotongStudio.Bomber.Gameplay.Bomb;
+using SotongStudio.Bomber.Gameplay.Character.DataService;
+using SotongStudio.Bomber.Gameplay.HUD;
 using System.Collections.Generic;
 using UnityEngine;
+using VContainer;
 
 namespace SotongStudio.Bomber
 {
     public class ExplosionLineView : MonoBehaviour
     {
         public List<GameObject> _explosionPrefabs;    //0 middle, 1 extension, 2 end
-        public int BombLength = 4;
-        public float BombDuration = 1;
-        public float ExplosionDuration = 0.5f;
         public GameObject Temp;
         public bool _isHitWall = false;
 
