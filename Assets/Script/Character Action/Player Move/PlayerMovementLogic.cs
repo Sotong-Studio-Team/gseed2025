@@ -34,7 +34,7 @@ public class PlayerMovementLogic : IStartable
 
     private void CheckInput(Vector2 movement)
     {
-        if (movement != Vector2.zero)
+        if (movement != Vector2.zero && !_view._altarUI.activeSelf && !_view._marketUI.activeSelf)
         {
             _view.MovePlayer(_characterDataService.GetCharacterSpeed(), movement);
             UpdateLastDirection(movement);
