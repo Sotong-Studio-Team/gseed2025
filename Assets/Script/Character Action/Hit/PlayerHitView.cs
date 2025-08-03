@@ -30,6 +30,7 @@ public class PlayerHitView : MonoBehaviour, IDamageable, IDamageablePlayer
     private bool _isInvincible = false;
     [SerializeField] private float _invincibleDuration = 2f;
     [SerializeField] private float _flashInterval = 0.5f;
+    [SerializeField] private Animator _animator;
 
     private void Awake()
     {
@@ -47,7 +48,7 @@ public class PlayerHitView : MonoBehaviour, IDamageable, IDamageablePlayer
         {
             return;
         }
-
+        _animator.Play("Hit");
         _characterDataUpdate.ReducePlayerHealth(amount);
         Debug.Log($"Player health = {_characterDataService.GetCharacterCurrentHealth()}/{_characterDataService.GetCharacterMaxHealth()}");
         _gameplayHUD.UpdateHealth();

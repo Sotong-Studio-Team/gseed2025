@@ -64,11 +64,11 @@ namespace SotongStudio.Bomber.Gameplay.Character.DataService
 
         public void SetupCharacterStat(CharacterStatGameplay characterStat)
         {
-            
+
         }
         public void AddPlayerHealth(int amount)
         {
-            _characterStat.Health += amount;
+            _characterStat.Health = Mathf.Clamp(_characterStat.Health + amount, 1, _characterStat.MaxHealth);
         }
         public void ReducePlayerHealth(int amount)
         {
@@ -78,6 +78,7 @@ namespace SotongStudio.Bomber.Gameplay.Character.DataService
         public void AddPlayerMaxHealth(int amount)
         {
             _characterStat.MaxHealth += amount;
+            AddPlayerHealth(amount);
         }
         public void ReducePlayerMaxHealth(int amount)
         {

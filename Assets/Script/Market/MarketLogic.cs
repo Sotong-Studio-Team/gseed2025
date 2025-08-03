@@ -3,6 +3,8 @@ using TMPro;
 using UnityEngine;
 using VContainer;
 using SotongStudio.Utilities.AudioSystem;
+using SotongStudio.Bomber.Gameplay.LevelManager;
+using System;
 
 namespace SotongStudio.Bomber
 {
@@ -18,10 +20,30 @@ namespace SotongStudio.Bomber
         [SerializeField] private TextMeshProUGUI _explosionPriceText;
 
         private int _healPrice = 3;
-        private int _hpPrice = 15;
-        private int _speedPrice = 5;
-        private int _bombPrice = 10;
-        private int _explosionPrice = 5;
+        private int _hpPrice => _hpBasePrice + (_hpBuyAmount * _hpIncreament);
+        private int _speedPrice => _speedBasePrice + (_speedBuyAmount * _speedIncreament);
+        private int _bombPrice => _bombBasePrice + (_bombBuyAmount * _bombIncreament);
+        private int _explosionPrice => _explosionBasePrice + (_explosionBuyAmount * _explosionIncreament);
+
+        private int _hpBasePrice = 15;
+        private int _speedBasePrice = 5;
+        private int _bombBasePrice = 10;
+        private int _explosionBasePrice = 5;
+
+        private int _hpBuyAmount = 0;
+        private int _speedBuyAmount = 0;
+        private int _bombBuyAmount = 0;
+        private int _explosionBuyAmount = 0;
+
+        [SerializeField]
+        private int _hpIncreament = 15;
+        [SerializeField]
+        private int _speedIncreament = 5;
+        [SerializeField]
+        private int _bombIncreament = 10;
+        [SerializeField]
+        private int _explosionIncreament = 5;
+
         private IGameplayHudLogic _gameplayHUD;
 
         private void Start()
@@ -46,17 +68,26 @@ namespace SotongStudio.Bomber
         }
 
         [Inject]
-        private void Inject(IGameplayHudLogic gameplayHUD)
+        private void Inject(IGameplayHudLogic gameplayHUD,
+                            ILevelManager levelManager)
         {
             _gameplayHUD = gameplayHUD;
+            levelManager.OnChangeLevel.AddListener(RefreshShop);
+
+        }
+
+        private void RefreshShop(int level)
+        {
+            OpenShopItems();
         }
 
         private void OpenShopItems()
         {
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i <= 4; i++)
             {
                 _view.OpenItem(i);
             }
+            _view.UpdatePriceText(_hpPrice, _speedPrice, _bombPrice, _explosionPrice);
         }
 
         private bool IsCurrencyEnough(int price)
@@ -88,6 +119,7 @@ namespace SotongStudio.Bomber
                 _view.Close(0);
                 BasicAudioSystem.Instance.PlaySFX("accept market");
                 _data.AddMaxHP();
+                _hpBuyAmount++;
             }
             _data.PrintStat();
         }
@@ -99,6 +131,7 @@ namespace SotongStudio.Bomber
                 _view.Close(1);
                 BasicAudioSystem.Instance.PlaySFX("accept market");
                 _data.AddSpeed();
+                _speedBuyAmount++;
             }
             _data.PrintStat();
         }
@@ -110,6 +143,7 @@ namespace SotongStudio.Bomber
                 _view.Close(2);
                 BasicAudioSystem.Instance.PlaySFX("accept market");
                 _data.AddBomb();
+                _bombBuyAmount++;
             }
             _data.PrintStat();
         }
@@ -121,6 +155,7 @@ namespace SotongStudio.Bomber
                 _view.Close(3);
                 BasicAudioSystem.Instance.PlaySFX("accept market");
                 _data.AddExplosion();
+                _explosionBuyAmount++;
             }
             _data.PrintStat();
         }
