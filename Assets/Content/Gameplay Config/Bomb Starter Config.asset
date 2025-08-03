@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _damage: 1
   _explosionLength: 1
-  _explosionDelay: 1
+  _explosionDelay: 2
   _explosionDuration: 0.5
-  _useCooldown: 1.5
+  _useCooldown: 2.5
