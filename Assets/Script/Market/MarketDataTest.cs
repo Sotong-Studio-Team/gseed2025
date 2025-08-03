@@ -1,6 +1,7 @@
 using SotongStudio.Bomber.Gameplay.Bomb;
 using SotongStudio.Bomber.Gameplay.Character;
 using SotongStudio.Bomber.Gameplay.Character.DataService;
+using SotongStudio.Bomber.Gameplay.HUD;
 using SotongStudio.Bomber.Gameplay.Inventory;
 using UnityEngine;
 using VContainer;
@@ -23,13 +24,14 @@ namespace SotongStudio.Bomber
 
         private IInventoryGameplayDataService _inventoryDataService;
         private IInventoryGameplayUpdateService _inventoryDataUpdate;
-
+        private IGameplayHudLogic _gameplayHud;
         private int _bombAmount;
 
         [Inject]
         public void Inject(ICharacterGameplayDataService characterDataService, ICharacterGameplayUpdateService characterDataUpdate,
                            IBombGameplayDataService bombDataService, IBombGameplayUpdateService bombDataUpdate,
-                           IInventoryGameplayDataService inventoryDataService, IInventoryGameplayUpdateService inventoryDataUpdate)
+                           IInventoryGameplayDataService inventoryDataService, IInventoryGameplayUpdateService inventoryDataUpdate,
+                           IGameplayHudLogic gameplayHud)
         {
             _characterDataService = characterDataService;
             _characterDataUpdate = characterDataUpdate;
@@ -39,6 +41,8 @@ namespace SotongStudio.Bomber
 
             _inventoryDataService = inventoryDataService;
             _inventoryDataUpdate = inventoryDataUpdate;
+
+            _gameplayHud = gameplayHud;
 
             _inventoryDataUpdate.AddOwnedCrystal(30);
         }
@@ -53,10 +57,12 @@ namespace SotongStudio.Bomber
         public void Heal()
         {
             _characterDataUpdate.AddPlayerHealth(_characterDataService.GetCharacterMaxHealth());
+            _gameplayHud.UpdateHealth();
         }
         public void AddMaxHP()
         {
             _characterDataUpdate.AddPlayerMaxHealth(1);
+            _gameplayHud.UpdateHealth();
         }
         public void AddSpeed()
         {
@@ -65,7 +71,8 @@ namespace SotongStudio.Bomber
 
         public void AddBomb()
         {
-            _bombAmount++;
+            _characterDataUpdate.AddBombAmount(1); 
+            _gameplayHud.UpdateBomb();
         }
         public void AddExplosion()
         {
