@@ -22,7 +22,6 @@ namespace SotongStudio.Bomber.Gameplay.DungeonGeneration.Service
         private Dictionary<int, int> _mapSizeConfig = new Dictionary<int, int>()
         {
             {10,2},
-            {15,3},
             {20,4},
             {25,5}
         };
@@ -64,7 +63,7 @@ namespace SotongStudio.Bomber.Gameplay.DungeonGeneration.Service
 
             var allAvailableClusters = _clusterCollection.GetAllItems();
 
-            var selectedConfig = Mathf.Clamp(_generatedAmount / 3, 0, 3);
+            var selectedConfig = Mathf.Clamp(_generatedAmount / 2, 0, 2);
 
             var blockAmount = _mapSizeConfig.ElementAt(selectedConfig).Key;
             var rowAmount = _mapSizeConfig.ElementAt(selectedConfig).Value;

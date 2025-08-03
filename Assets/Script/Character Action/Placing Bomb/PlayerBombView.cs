@@ -41,6 +41,7 @@ public class PlayerBombView : MonoBehaviour
     [SerializeField] private Vector3 _bombOffset = new (0,0.5f,0);
     private Vector3 _finalPosition;
     [SerializeField] private float _distance = 0.5f;
+    [SerializeField] private Animator _animator;
 
     public UnityEvent OnBombDeployed;
 
