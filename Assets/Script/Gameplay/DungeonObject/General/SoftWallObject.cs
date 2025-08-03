@@ -9,6 +9,7 @@ namespace SotongStudio.Bomber.Gameplay.DungeonObject
     public interface ISoftWallObject : IDungeonObject, IDamageable
     {
         void SetLinkedObject(IDungeonObject linkedObject);
+        void ResetVanishState();
     }
     public class SoftWallObject : DungeonObject, ISoftWallObject
     {
@@ -18,7 +19,12 @@ namespace SotongStudio.Bomber.Gameplay.DungeonObject
         {
             OnDestroyedObject.AddListener(RevealLinkedTarget);
         }
+        public void ResetVanishState()
+        {
+            var spriteRenderer = GetComponent<SpriteRenderer>();
 
+            ShaderController.ResetDesolveToDefaults(spriteRenderer.materials);
+        }
         public void Damage(int amount)
         {
             TakeExplosionDamageProcess(amount);

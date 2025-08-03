@@ -14,7 +14,7 @@ namespace SotongStudio.Bomber
         Vector2 ZeroPosition { get; }
         Vector3 PlayerStartPos { get; }
 
-        GameObject[] StarterWalls { get; }
+        SoftWallObject[] StarterWalls { get; }
     }
     public class DungeonGenerationView : MonoBehaviour, IDungeonGenerationView
     {
@@ -32,7 +32,7 @@ namespace SotongStudio.Bomber
         [SerializeField]
         private Transform _playerStartPos;
         [SerializeField]
-        private GameObject[] _starterWalls;
+        private SoftWallObject[] _starterWalls;
 
         public DungeonObject HardWall => _blockArea;
         public DungeonObject SoftWall => _coverObject;
@@ -42,6 +42,6 @@ namespace SotongStudio.Bomber
 
         public Vector2 ZeroPosition => _zeroPosition.position;
         public Vector3 PlayerStartPos => _playerStartPos.position;
-        public GameObject[] StarterWalls => _starterWalls;
+        public SoftWallObject[] StarterWalls => _starterWalls;
     }
 }

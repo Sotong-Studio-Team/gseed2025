@@ -5,6 +5,7 @@ namespace SotongStudio.Bomber.Gameplay.DungeonObject.Enemy
     public interface IHunterEnemyVisual
     {
         void FlipVisualToRight(bool toRight);
+        GameObject GameObject { get; }
     }
     public class HunterEnemyVisual : MonoBehaviour, IHunterEnemyVisual
     {
@@ -13,6 +14,8 @@ namespace SotongStudio.Bomber.Gameplay.DungeonObject.Enemy
 
         [SerializeField]
         private Animator _animator;
+
+        public GameObject GameObject => gameObject;
 
 
         public void PlayWalkAnimation()

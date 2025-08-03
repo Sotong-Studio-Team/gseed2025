@@ -74,9 +74,9 @@ namespace SotongStudio.Bomber.Gameplay.DungeonGeneration
 
             obj.InitializeProcess();
 
-            if(isCovered)
+            if (isCovered)
             {
-                var dunObj = obj.GetComponent<IDungeonObject>(); 
+                var dunObj = obj.GetComponent<IDungeonObject>();
                 AddCoverStone(dunObj, coordinate);
                 dunObj.ShowAsCovered();
             }
@@ -108,7 +108,7 @@ namespace SotongStudio.Bomber.Gameplay.DungeonGeneration
 
         public void CleanUpDungeon()
         {
-            if(_view.ObjectContainer.childCount > 0)
+            if (_view.ObjectContainer.childCount > 0)
             {
                 foreach (Transform obj in _view.ObjectContainer)
                 {
@@ -126,7 +126,8 @@ namespace SotongStudio.Bomber.Gameplay.DungeonGeneration
         {
             foreach (var item in _view.StarterWalls)
             {
-                item.SetActive(true);    
+                item.gameObject.SetActive(true);
+                item.ResetVanishState();
             }
             
         }
