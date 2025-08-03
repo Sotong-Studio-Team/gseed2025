@@ -1,7 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using SotongStudio.Bomber.Gameplay.DungeonGeneration.Data;
+using SotongStudio.Bomber.Gameplay.LevelManager;
 using SotongStudio.Bomber.Shared.Dungeon.Cluster;
+using Unity.Android.Gradle;
 using UnityEngine;
 using VContainer;
 
@@ -17,6 +19,16 @@ namespace SotongStudio.Bomber.Gameplay.DungeonGeneration.Service
         private readonly IClusterCollection _clusterCollection;
         private readonly IDungeonObjectConfigCollection _dungeonObjectCollection;
         private readonly IDngeonGenerationLogic _generationLogic;
+
+        private int _generatedAmount = 0;
+
+        private Dictionary<int, int> _mapSizeConfig = new Dictionary<int, int>()
+        {
+            {10,2},
+            {15,3},
+            {20,4},
+            {25,5}
+        };
 
         public DungeonGenerationService(IClusterCollection clusterCollection,
                                         IDungeonObjectConfigCollection dungeonObjectConfigCollection,
@@ -34,6 +46,8 @@ namespace SotongStudio.Bomber.Gameplay.DungeonGeneration.Service
             var dungeonData = GenerateDungeonData(dungeonConfig);
             _generationLogic.GenerateDugeonObject(dungeonData);
             _generationLogic.UpdateNavigationSurface();
+
+            _generatedAmount++;
         }
 
 
@@ -53,14 +67,20 @@ namespace SotongStudio.Bomber.Gameplay.DungeonGeneration.Service
 
             var allAvailableClusters = _clusterCollection.GetAllItems();
 
+            var selectedConfig = Mathf.Clamp(_generatedAmount / 3, 0, 3);
+
+            var blockAmount = _mapSizeConfig.ElementAt(selectedConfig).Key;
+            var rowAmount = _mapSizeConfig.ElementAt(selectedConfig).Value;
+
+
             int layoutX = 0;
             int layoutY = 0;
 
-            for (int i = 0; i < 25; i++)
+            for (int i = 0; i < blockAmount; i++)
             {
                 if (i > 0)
                 {
-                    if (i % 5 == 0 && i != 0)
+                    if (i % rowAmount == 0 && i != 0)
                     {
                         layoutX++;
                         layoutY = 0;
