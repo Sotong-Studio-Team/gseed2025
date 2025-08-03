@@ -29,7 +29,7 @@ namespace SotongStudio.Bomber
         public void Show()
         {
             _view.SetCrystalCount(_inventoryService.GetRcordedCrystal());
-            _view.SetClearAmount(_levelManager.GetCurrentLevel());
+            _view.SetClearAmount(_levelManager.GetCurrentLevel() - 1);
             _view.Show();
         }
 
