@@ -8,6 +8,7 @@ namespace SotongStudio.Bomber.Gameplay.LevelManager
     {
         void StartLevel();
         UnityEvent<int> OnChangeLevel { get; }
+        int GetCurrentLevel();
     }
 
     public class LevelManager : ILevelManager
@@ -46,5 +47,10 @@ namespace SotongStudio.Bomber.Gameplay.LevelManager
             var startPos = _generationService.GetPlayerStartPos();
             _playerLogic.TeleportPlayer(startPos);
         }
+
+        public int GetCurrentLevel()
+        {
+            return _currentLevel;
+        }   
     }
 }
