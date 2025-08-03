@@ -44,7 +44,7 @@ namespace SotongStudio.Bomber
 
             _gameplayHud = gameplayHud;
 
-            _inventoryDataUpdate.AddOwnedCrystal(930);
+            _inventoryDataUpdate.AddOwnedCrystal(30);
         }
         
         //public void Setup()
