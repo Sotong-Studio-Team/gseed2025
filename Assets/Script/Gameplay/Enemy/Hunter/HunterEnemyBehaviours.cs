@@ -1,5 +1,6 @@
 using SotongStudio.Bomber.Gameplay.Enemy.Behaviour;
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace SotongStudio.Bomber.Gameplay.DungeonObject.Enemy
 {
@@ -16,7 +17,8 @@ namespace SotongStudio.Bomber.Gameplay.DungeonObject.Enemy
         private HuntBehaviourComponent _huntBehavComponent;
         [SerializeField]
         private RoamingBehaviourComponent _roamBehavComponent;
-
+        public NavMeshAgent _handledAgent;
+        
         private HuntBehaviourLogic _huntBehaviour;
         private RoamingBehaviourLogic _roamBehaviour;
 

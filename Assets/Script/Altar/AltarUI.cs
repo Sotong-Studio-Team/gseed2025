@@ -2,7 +2,6 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using SotongStudio.Utilities.AudioSystem;
 
 namespace SotongStudio.Bomber
 {
@@ -132,7 +131,7 @@ namespace SotongStudio.Bomber
             {
                 altar.OnOptionSelected(increaseStat); 
                 isAnimating = false;
-                BasicAudioSystem.Instance.PlaySFX("accept altar");
+                altar.DisableAltar();
             });
         }
 
