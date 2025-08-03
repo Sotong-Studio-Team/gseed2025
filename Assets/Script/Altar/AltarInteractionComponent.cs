@@ -29,10 +29,12 @@ namespace SotongStudio.Bomber
                 Debug.Log("kamu sudah pakai tadi");
                 return;
             }
-                
 
-            _lastInteractedLevel = currentLevel;
-            _altarController.ShowAltar();
+            _altarController.ShowAltar(onInteractionConfirmed: () =>
+            {
+                _lastInteractedLevel = currentLevel;
+            });
+
         }
     }
 }
