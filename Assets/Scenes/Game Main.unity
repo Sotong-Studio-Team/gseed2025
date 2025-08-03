@@ -1515,6 +1515,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &715465885 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8033169280719017901, guid: 06c22a02b0df17947806e638d551a6e3, type: 3}
+  m_PrefabInstance: {fileID: 1353418961525320366}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &717306225
 GameObject:
   m_ObjectHideFlags: 0
@@ -4529,6 +4534,8 @@ MonoBehaviour:
   _animator: {fileID: 2071574910}
   _sprite: {fileID: 0}
   _visualObject: {fileID: 164340031}
+  _marketUI: {fileID: 715465885}
+  _altarUI: {fileID: 1598591244}
 --- !u!114 &2072389024
 MonoBehaviour:
   m_ObjectHideFlags: 0
