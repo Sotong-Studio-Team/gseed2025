@@ -4464,6 +4464,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 7694556760777950391, guid: 660f4670ea451224494e6fec9311b981, type: 3}
+      propertyPath: m_Alpha
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9038716024686004572, guid: 660f4670ea451224494e6fec9311b981, type: 3}
       propertyPath: m_Pivot.x
       value: 0
