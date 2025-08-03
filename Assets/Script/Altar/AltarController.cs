@@ -18,6 +18,8 @@ namespace SotongStudio.Bomber
         private ICharacterGameplayUpdateService _charUpdateService;
         private ICharacterGameplayDataService _charDataService;
         private IGameplayHudLogic _hudLogic;
+        private System.Action _onInteractionConfirmed;
+
 
         // Batas minimum stat
         private const int MIN_HEALTH = 3;
@@ -34,10 +36,13 @@ namespace SotongStudio.Bomber
         };
 
         private bool isPopupShown = false;
-
         
+        private bool hasStoredStatThisLevel = false;
+        private AltarStatUpgrade.PlayerStatType storedOption1;
+        private AltarStatUpgrade.PlayerStatType storedOption2;
         private AltarStatUpgrade.PlayerStatType _currentOption1;
         private AltarStatUpgrade.PlayerStatType _currentOption2;
+        
         
         [Inject]
         public void Inject(
@@ -65,20 +70,37 @@ namespace SotongStudio.Bomber
           }
         }*/
         
-        public void ShowAltar() // fungsi yang akan dipanggil untuk mengshow sekaligus merandom stat yang disediakan. 
+        public void ShowAltar(System.Action onInteractionConfirmed) // fungsi yang akan dipanggil untuk mengshow sekaligus merandom stat yang disediakan. 
         {
             isPopupShown = true;
             altarPopupUI.SetActive(true);
 
-            var randomOptions = allStats.OrderBy(_ => Random.value).ToList();
-            _currentOption1 = randomOptions[0];
-            _currentOption2 = randomOptions[1];
+            _onInteractionConfirmed = onInteractionConfirmed;
+
+            // Gunakan stat yang sudah disimpan, jika ada
+            if (hasStoredStatThisLevel)
+            {
+                _currentOption1 = storedOption1;
+                _currentOption2 = storedOption2;
+            }
+            else
+            {
+                var randomOptions = allStats.OrderBy(_ => Random.value).ToList();
+                _currentOption1 = randomOptions[0];
+                _currentOption2 = randomOptions[1];
+
+                // Simpan untuk pemakaian ulang
+                storedOption1 = _currentOption1;
+                storedOption2 = _currentOption2;
+                hasStoredStatThisLevel = true;
+            }
 
             altarUI.Init(_currentOption1, _currentOption2, this);
         }
         
         public void DisableAltar() // fungsi yang akan dipanggil untuk menghilangkan altar. 
         {
+            
             isPopupShown = false;
             altarPopupUI.SetActive(false);
         }
@@ -93,6 +115,16 @@ namespace SotongStudio.Bomber
             altarPopupUI.SetActive(false);
             isPopupShown = false;
         }
+        
+        public void ConfirmInteraction()
+        {
+            _onInteractionConfirmed?.Invoke();
+            _onInteractionConfirmed = null;
+
+            // reset agar level berikutnya dapat stat baru
+            hasStoredStatThisLevel = false;
+        }
+
 
         private void IncreaseStat(AltarStatUpgrade.PlayerStatType stat) // untuk meningkatkan stat
         {

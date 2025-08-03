@@ -129,6 +129,7 @@ namespace SotongStudio.Bomber
             okButton.onClick.RemoveAllListeners();
             okButton.onClick.AddListener(() =>
             {
+                altar.ConfirmInteraction();
                 altar.OnOptionSelected(increaseStat); 
                 isAnimating = false;
                 altar.DisableAltar();
