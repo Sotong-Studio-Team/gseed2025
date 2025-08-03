@@ -1081,7 +1081,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1226198662237591173}
-  - {fileID: 2307269351260164299}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1164,7 +1163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 393b06683414ad547b349de5880736ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _wholeUI: {fileID: 5956848494260058860}
+  _wholeUI: {fileID: 8033169280719017901}
   _itemLid:
   - {fileID: 7998584360487680333}
   - {fileID: 8452738649656466119}
@@ -2525,7 +2524,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5956848494260058860}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2534,7 +2533,7 @@ RectTransform:
   - {fileID: 6304254302885245071}
   - {fileID: 2629265909981598235}
   - {fileID: 8088674658011411619}
-  m_Father: {fileID: 3430990520115144500}
+  m_Father: {fileID: 1226198662237591173}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2793,7 +2792,7 @@ GameObject:
   - component: {fileID: 8472588150294242344}
   - component: {fileID: 4712571045863179250}
   m_Layer: 5
-  m_Name: Image
+  m_Name: BG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2810,7 +2809,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2307269351260164299}
   m_Father: {fileID: 3430990520115144500}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}

@@ -131,6 +131,7 @@ namespace SotongStudio.Bomber
             {
                 altar.OnOptionSelected(increaseStat); 
                 isAnimating = false;
+                altar.DisableAltar();
             });
         }
 
