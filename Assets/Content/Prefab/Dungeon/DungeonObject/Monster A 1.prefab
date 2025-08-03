@@ -158,7 +158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyData:
     enemyName: Dumber
-    moveSpeed: 2.5
+    moveSpeed: 1.5
     maxHP: 1
   obstacleLayers:
     serializedVersion: 2
