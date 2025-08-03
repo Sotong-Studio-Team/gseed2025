@@ -4,6 +4,7 @@ using UnityEngine;
 using VContainer;
 using SotongStudio.Bomber.Gameplay.Bomb;
 using SotongStudio.Bomber.Gameplay.Character.DataService;
+using SotongStudio.Bomber.Gameplay.HUD;
 
 namespace SotongStudio.Bomber
 {
@@ -16,7 +17,8 @@ namespace SotongStudio.Bomber
         private IBombGameplayDataService _bombDataService;
         private ICharacterGameplayUpdateService _charUpdateService;
         private ICharacterGameplayDataService _charDataService;
-        
+        private IGameplayHudLogic _hudLogic;
+
         // Batas minimum stat
         private const int MIN_HEALTH = 3;
         private const int MIN_SPEED = 1;
@@ -42,12 +44,14 @@ namespace SotongStudio.Bomber
             IBombGameplayUpdateService bombUpdateService,
             IBombGameplayDataService bombDataService,
             ICharacterGameplayUpdateService charUpdateService,
-            ICharacterGameplayDataService charDataService) 
+            ICharacterGameplayDataService charDataService,
+            IGameplayHudLogic hudLogic)
         {
             _bombUpdateService = bombUpdateService;
             _bombDataService = bombDataService;
             _charUpdateService = charUpdateService;
-            _charDataService = charDataService; 
+            _charDataService = charDataService;
+            _hudLogic = hudLogic;
         }
 
 
@@ -107,6 +111,8 @@ namespace SotongStudio.Bomber
                     _charUpdateService.AddPlayerMaxHealth(1);
                     break;
             }
+
+            _hudLogic.UpdateAllStat();
         }
 
         private void DecreaseStat(AltarStatUpgrade.PlayerStatType stat) // untuk decrease stat
@@ -149,6 +155,8 @@ namespace SotongStudio.Bomber
                     }
                     break;
             }
+
+            _hudLogic.UpdateAllStat();
         }
 
     }

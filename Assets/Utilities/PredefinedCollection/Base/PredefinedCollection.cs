@@ -44,6 +44,7 @@ namespace SotongStudio.SharedData.PredefinedData
             _itemList.Clear();
             foreach (var file in files)
             {
+                Debug.Log($"Found Asset :{file}");
                 var asset = UnityEditor.AssetDatabase.LoadAssetAtPath<T>(file);
 
                 if (asset != null)
