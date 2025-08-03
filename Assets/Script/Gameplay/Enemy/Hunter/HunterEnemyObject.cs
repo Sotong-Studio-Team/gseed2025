@@ -9,12 +9,12 @@ namespace SotongStudio.Bomber.Gameplay.DungeonObject.Enemy
     }
     public class HunterEnemyObject : EnemyObject, IHunterEnemy
     {
-        [SerializeField] 
+        [SerializeField]
         HunterEnemyVisual _hunterVisual;
-        
+
         [SerializeField]
         HunterEnemyBehaviours _hunterBehaviours;
-        
+
         public IHunterEnemyVisual Visual => _hunterVisual;
         public IHunterEnemyBehaviour Behaviour => _hunterBehaviours;
 
@@ -41,6 +41,11 @@ namespace SotongStudio.Bomber.Gameplay.DungeonObject.Enemy
         {
             //Setup Visual
             _hunterBehaviours.InternalSetup();
+        }
+
+        public void Update()
+        {
+            Visual.FlipVisualToRight(_hunterBehaviours._handledAgent.velocity.x > 0);
         }
     }
 }

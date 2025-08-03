@@ -9,7 +9,7 @@ namespace SotongStudio.Bomber.Gameplay.DungeonObject.Enemy
     public class HunterEnemyVisual : MonoBehaviour, IHunterEnemyVisual
     {
         [SerializeField]
-        private SpriteRenderer _visual;
+        private GameObject _visual;
 
         [SerializeField]
         private Animator _animator;
@@ -26,7 +26,7 @@ namespace SotongStudio.Bomber.Gameplay.DungeonObject.Enemy
 
         public void FlipVisualToRight(bool toRight)
         {
-            _visual.flipX = toRight;
+            _visual.transform.localScale = new Vector2(toRight ? -1 : 1, 1);
         }
     }
 }

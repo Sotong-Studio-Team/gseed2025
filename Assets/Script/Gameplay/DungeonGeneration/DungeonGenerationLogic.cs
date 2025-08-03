@@ -12,6 +12,8 @@ namespace SotongStudio.Bomber.Gameplay.DungeonGeneration
         void GenerateDugeonObject(IDugeonGeneratedData generationData);
         Vector3 GetPlayerStartPos();
         void UpdateNavigationSurface();
+
+        void SpawnStartWall();
     }
     public class DungeonGenerationLogic : IDngeonGenerationLogic
     {
@@ -42,6 +44,8 @@ namespace SotongStudio.Bomber.Gameplay.DungeonGeneration
             {
                 AddObject(dungeonObject);
             }
+
+            SpawnStartWall();
         }
         public void UpdateNavigationSurface()
         {
@@ -116,6 +120,15 @@ namespace SotongStudio.Bomber.Gameplay.DungeonGeneration
         public Vector3 GetPlayerStartPos()
         {
             return _view.PlayerStartPos;
+        }
+
+        public void SpawnStartWall()
+        {
+            foreach (var item in _view.StarterWalls)
+            {
+                item.SetActive(true);    
+            }
+            
         }
     }
 }

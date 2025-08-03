@@ -19,6 +19,10 @@ namespace SotongStudio.Bomber
                 Vector2 movement = new(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
                 OnMovementInput?.Invoke(movement);
             }
+            else
+            {
+                OnMovementInput?.Invoke(Vector2.zero);
+            }
         }
     }
 }

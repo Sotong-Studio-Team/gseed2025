@@ -31,12 +31,12 @@ public class PlayerMovementView : MonoBehaviour
         bool isWalking;
 
         //set parameter idle animation player
-        _animator.SetFloat("dirX", lastDirection.x);
-        _animator.SetFloat("dirY", lastDirection.y);
+        //_animator.SetFloat("dirX", lastDirection.x);
+        //_animator.SetFloat("dirY", lastDirection.y);
 
-        //set parameter walk animation player
-        _animator.SetFloat("moveX", movement.x);
-        _animator.SetFloat("moveY", movement.y);
+        ////set parameter walk animation player
+        //_animator.SetFloat("moveX", movement.x);
+        //_animator.SetFloat("moveY", movement.y);
 
         if (movement != Vector2.zero)
         {
