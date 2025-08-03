@@ -8,6 +8,7 @@ namespace SotongStudio.Bomber.Gameplay.HUD
         void UpdateHealth();
         void UpdateBomb();
         void UpdateCrystal();
+        void UpdateAllStat();
     }
     public class GameplayHudLogic : IGameplayHudLogic
     {
@@ -42,6 +43,12 @@ namespace SotongStudio.Bomber.Gameplay.HUD
         public void UpdateCrystal()
         {
             _hudView.UpdateCrystalAmount(_inventoryDataService.GetOwnedCrystal());
+        }
+
+        public void UpdateAllStat()
+        {
+            UpdateHealth();
+            UpdateBomb();
         }
     }
 }

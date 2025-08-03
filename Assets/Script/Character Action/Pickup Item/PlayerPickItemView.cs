@@ -1,4 +1,5 @@
 using UnityEngine;
+using SotongStudio.Utilities.AudioSystem;
 
 public class PlayerPickItemView : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class PlayerPickItemView : MonoBehaviour
         if(pickable != null)
         {
             pickable.PickUp();
+            BasicAudioSystem.Instance.PlaySFX("pick");
         }
     }
 }
