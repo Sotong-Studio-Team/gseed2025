@@ -29,14 +29,14 @@ namespace SotongStudio.Bomber
         public void Show()
         {
             _view.SetCrystalCount(_inventoryService.GetRcordedCrystal());
-            _view.SetClearAmount(_levelManager.GetCurrentLevel() - 1);
+            _view.SetClearAmount(_levelManager.GetCurrentLevel());
             _view.Show();
         }
 
         private void PlayAgainProcess()
         {
             Time.timeScale = 1f; // Resume the game time
-            SceneManager.LoadScene("Main Gameplay");
+            SceneManager.LoadScene("Game Main");
         }
     }
 }

@@ -1,10 +1,8 @@
+using System.Collections;
 using SotongStudio.Bomber;
-using SotongStudio.Bomber.Gameplay.Bomb;
 using SotongStudio.Bomber.Gameplay.Character.DataService;
 using SotongStudio.Bomber.Gameplay.HUD;
-using System.Collections;
 using UnityEngine;
-using UnityEngine.Android;
 using VContainer;
 
 public class PlayerHitView : MonoBehaviour, IDamageable
@@ -49,12 +47,13 @@ public class PlayerHitView : MonoBehaviour, IDamageable
         _characterDataUpdate.ReducePlayerHealth(amount);
         Debug.Log($"Player health = {_characterDataService.GetCharacterCurrentHealth()}/{_characterDataService.GetCharacterMaxHealth()}");
         _gameplayHUD.UpdateHealth();
-        StartCoroutine(InvincibleCo());
 
         if (_characterDataService.GetCharacterCurrentHealth() <= 0)
         {
             Die();
         }
+
+        StartCoroutine(InvincibleCo());
 
     }
 
