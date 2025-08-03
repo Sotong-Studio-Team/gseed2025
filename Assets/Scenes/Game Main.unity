@@ -2797,6 +2797,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 9061194588409803174, guid: 159d7bf89a3d89446a1b6a7372191156, type: 3}
   m_PrefabInstance: {fileID: 1106289146}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1474810803 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8033169280719017901, guid: 06c22a02b0df17947806e638d551a6e3, type: 3}
+  m_PrefabInstance: {fileID: 1353418961525320366}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1510601642
 GameObject:
   m_ObjectHideFlags: 0
@@ -4485,6 +4490,8 @@ MonoBehaviour:
   _animator: {fileID: 2071574910}
   _sprite: {fileID: 0}
   _visualObject: {fileID: 164340031}
+  _marketUI: {fileID: 1474810803}
+  _altarUI: {fileID: 1598591244}
 --- !u!114 &2072389024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4895,6 +4902,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2032443905063577866, guid: 06c22a02b0df17947806e638d551a6e3, type: 3}
+      propertyPath: m_text
+      value: SPD +1
+      objectReference: {fileID: 0}
     - target: {fileID: 2307197738527185332, guid: 06c22a02b0df17947806e638d551a6e3, type: 3}
       propertyPath: m_Name
       value: market_ui

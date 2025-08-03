@@ -13,6 +13,9 @@ public class PlayerMovementView : MonoBehaviour
     [SerializeField]
     private GameObject _visualObject;
 
+    public GameObject _marketUI;
+    public GameObject _altarUI;
+
     private void Start()
     {
         //_rb = GetComponent<Rigidbody2D>();
