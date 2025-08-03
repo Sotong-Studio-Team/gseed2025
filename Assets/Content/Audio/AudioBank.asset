@@ -15,7 +15,18 @@ MonoBehaviour:
   _bgmClips:
   - {fileID: 8300000, guid: 359d0655a9741e042b5dbc6903e7a843, type: 3}
   - {fileID: 8300000, guid: c2661d152d314d14db7ef8c0ebd636b0, type: 3}
+  - {fileID: 8300000, guid: 359d0655a9741e042b5dbc6903e7a843, type: 3}
+  - {fileID: 8300000, guid: c2661d152d314d14db7ef8c0ebd636b0, type: 3}
   _sfxClips:
+  - {fileID: 8300000, guid: cf063ace5ebe5f04ea568d2784bbc92a, type: 3}
+  - {fileID: 8300000, guid: c80e9dd48bf13d0408766ba8b4c311cc, type: 3}
+  - {fileID: 8300000, guid: 49170caeb9186804ea411f77c732422f, type: 3}
+  - {fileID: 8300000, guid: 03f39606f8da52642aa65d7be6c8976a, type: 3}
+  - {fileID: 8300000, guid: bf643a8df08424447b4f13768ced9215, type: 3}
+  - {fileID: 8300000, guid: 7b3d66cc0f9da5d4594ab38904e65dd5, type: 3}
+  - {fileID: 8300000, guid: f8d04b43e28cf21429d76dbd6f2aca64, type: 3}
+  - {fileID: 8300000, guid: c21b2b3abd9ecdd48bf4a46c9f431427, type: 3}
+  - {fileID: 8300000, guid: 657fc6a36cb28c146ba884d408695531, type: 3}
   - {fileID: 8300000, guid: cf063ace5ebe5f04ea568d2784bbc92a, type: 3}
   - {fileID: 8300000, guid: c80e9dd48bf13d0408766ba8b4c311cc, type: 3}
   - {fileID: 8300000, guid: 49170caeb9186804ea411f77c732422f, type: 3}
