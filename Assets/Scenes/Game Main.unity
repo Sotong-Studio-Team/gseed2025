@@ -4407,6 +4407,7 @@ MonoBehaviour:
   - {fileID: 5783824159380792611}
   _invincibleDuration: 2
   _flashInterval: 0.2
+  _animator: {fileID: 2071574910}
 --- !u!114 &2072389028
 MonoBehaviour:
   m_ObjectHideFlags: 0
