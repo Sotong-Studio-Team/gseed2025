@@ -5202,18 +5202,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4939119164240916533, guid: cd8d91d772e89a34ab82789b30bbdf8b, type: 3}
-      propertyPath: m_Resource
-      value: 
-      objectReference: {fileID: 8300000, guid: 359d0655a9741e042b5dbc6903e7a843, type: 3}
-    - target: {fileID: 4939119164240916533, guid: cd8d91d772e89a34ab82789b30bbdf8b, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 359d0655a9741e042b5dbc6903e7a843, type: 3}
-    - target: {fileID: 4939119164240916533, guid: cd8d91d772e89a34ab82789b30bbdf8b, type: 3}
-      propertyPath: OutputAudioMixerGroup
-      value: 
-      objectReference: {fileID: 172055595355972365, guid: bcad64b13f1685548a0143d191b691f4, type: 2}
     - target: {fileID: 7073171670182318983, guid: cd8d91d772e89a34ab82789b30bbdf8b, type: 3}
       propertyPath: m_Name
       value: Sound System
