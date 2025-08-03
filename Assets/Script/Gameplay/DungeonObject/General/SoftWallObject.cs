@@ -1,6 +1,7 @@
 #nullable enable
 
 using UnityEngine;
+using SotongStudio.Utilities.AudioSystem;
 
 namespace SotongStudio.Bomber.Gameplay.DungeonObject
 {
@@ -21,6 +22,7 @@ namespace SotongStudio.Bomber.Gameplay.DungeonObject
         {
             TakeExplosionDamageProcess(amount);
             Debug.Log("Take damage");
+            BasicAudioSystem.Instance.PlaySFX("tanahnya jatuh setelah meledak v2");
         }
         public override void TakeExplosionDamageProcess(int damage)
         {
