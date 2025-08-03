@@ -57,6 +57,8 @@ namespace SotongStudio.Utilities.AudioSystem
                 fileFounds.AddRange(System.IO.Directory.GetFiles(filePath, $"*.{format}", System.IO.SearchOption.AllDirectories));
 
             }
+            _bgmClips.Clear();
+            _sfxClips.Clear();
 
             foreach (var foundPath in fileFounds)
             {
