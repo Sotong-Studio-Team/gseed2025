@@ -23,7 +23,7 @@ namespace SotongStudio.Bomber.Gameplay.HUD
 
         public void UpdateCrystalAmount(int crystalAmount)
         {
-            _crystalAmountText.text = crystalAmount.ToString();
+            _crystalAmountText.text = $"X{crystalAmount}";
         }
     }
 }

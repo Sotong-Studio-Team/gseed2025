@@ -13,6 +13,15 @@ namespace SotongStudio.Bomber
     {
         [SerializeField]
         private Button _startButton;
+
+        [SerializeField]
+        private CanvasGroup _canvasGroup;
+
         public UnityEvent OnStartMenu => _startButton.onClick;
+        
+        public void StartGame()
+        {
+            _canvasGroup.Hide();
+        }
     }
 }

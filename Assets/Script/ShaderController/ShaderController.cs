@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class ShaderController 
+public class ShaderController
 {
     public const float DefaultDissolveTime = 0.5f;
     public const string DissolveAmountProperty = "_DissolveAmount";
@@ -28,6 +28,18 @@ public class ShaderController
             }
 
             yield return null;
+        }
+    }
+
+    public static void ResetDesolveToDefaults(params Material[] materials)
+    {
+        foreach (var mat in materials)
+        {
+            if (mat != null)
+            {
+                mat.SetFloat(DissolveAmountProperty, 0);
+                mat.SetFloat(VerticalDissolveAmountProperty, 0);
+            }
         }
     }
 }

@@ -49,6 +49,10 @@ namespace SotongStudio.Bomber.Gameplay.DungeonObject.Enemy
         {
             //Setup Visual
             _hunterBehaviours.InternalSetup();
+            var spriteRenderers = Visual.GameObject.GetComponentsInChildren<SpriteRenderer>();
+            var materials = new Material[spriteRenderers.Length];
+
+            ShaderController.ResetDesolveToDefaults(materials);
         }
 
         public void Update()
