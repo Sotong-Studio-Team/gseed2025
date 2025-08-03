@@ -1,5 +1,6 @@
 using SotongStudio.Bomber.Gameplay.Character.DataService;
 using SotongStudio.Bomber.Gameplay.Inventory;
+using SotongStudio.Bomber.Gameplay.LevelManager;
 
 namespace SotongStudio.Bomber.Gameplay.HUD
 {
@@ -9,6 +10,7 @@ namespace SotongStudio.Bomber.Gameplay.HUD
         void UpdateBomb();
         void UpdateCrystal();
         void UpdateAllStat();
+        void UpdateLevel(int level);
     }
     public class GameplayHudLogic : IGameplayHudLogic
     {
@@ -29,7 +31,6 @@ namespace SotongStudio.Bomber.Gameplay.HUD
 
             _characterDataSerivce = characterDataSerivce;
             _inventoryDataService = inventoryDataService;
-
         }
         public void UpdateHealth()  
         {
@@ -43,6 +44,10 @@ namespace SotongStudio.Bomber.Gameplay.HUD
         public void UpdateCrystal()
         {
             _hudView.UpdateCrystalAmount(_inventoryDataService.GetOwnedCrystal());
+        }
+        public void UpdateLevel(int level)
+        {
+            _hudView.UpdateLevel(level);
         }
 
         public void UpdateAllStat()
