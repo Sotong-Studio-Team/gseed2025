@@ -1,5 +1,6 @@
 #nullable enable
 
+using System.Collections;
 using UnityEngine;
 
 namespace SotongStudio.Bomber.Gameplay.DungeonObject
@@ -24,11 +25,17 @@ namespace SotongStudio.Bomber.Gameplay.DungeonObject
         }
         public override void TakeExplosionDamageProcess(int damage)
         {
-            gameObject.SetActive(false);
-            OnDestroyedObject.Invoke();
+            var spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+            var materials = new Material[spriteRenderers.Length];
+
+            for (int i = 0; i < spriteRenderers.Length; i++)
+            {
+                materials[i] = spriteRenderers[i].material;
+            }
+
+            StartCoroutine(PlayVanishThenDestroy(materials));
         }
-
-
+        
         private void RevealLinkedTarget()
         {
             _linkedObject?.ShowUpProcess();
@@ -46,6 +53,15 @@ namespace SotongStudio.Bomber.Gameplay.DungeonObject
 
             base.RemoveFromFieldProcess();
         }
+        
+        private IEnumerator PlayVanishThenDestroy(Material[] materials)
+        {
+            yield return ShaderController.Vanish(materials);
+
+            gameObject.SetActive(false);
+            OnDestroyedObject.Invoke();
+        }
+
 
     }
 }
