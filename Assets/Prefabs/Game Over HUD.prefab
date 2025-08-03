@@ -208,8 +208,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _crystalText: {fileID: 4895104226206789070}
-  _clearAmount: {fileID: 0}
+  _clearAmount: {fileID: 7754696333489352906}
   _playAgainButton: {fileID: 8016721517914866353}
+  _canvasGroup: {fileID: 7694556760777950391}
 --- !u!1 &1375668746462528299
 GameObject:
   m_ObjectHideFlags: 0

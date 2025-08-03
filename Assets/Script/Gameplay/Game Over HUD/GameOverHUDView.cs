@@ -8,6 +8,8 @@ namespace SotongStudio.Bomber
     public interface IGameOverHUDView
     {
         UnityEvent OnPlayAgain { get; }
+
+        void SetClearAmount(int currentLevel);
         void SetCrystalCount(int count);
         void Show();
     }
@@ -22,7 +24,7 @@ namespace SotongStudio.Bomber
         private Button _playAgainButton;
 
         [SerializeField]
-        private readonly CanvasGroup _canvasGroup;
+        private CanvasGroup _canvasGroup;
         public UnityEvent OnPlayAgain => _playAgainButton.onClick;
         public void SetCrystalCount(int count)
         {
