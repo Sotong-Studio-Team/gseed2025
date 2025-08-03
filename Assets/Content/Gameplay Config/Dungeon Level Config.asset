@@ -22,9 +22,9 @@ MonoBehaviour:
     <SpawnRate>k__BackingField: 10
     <EnemyUnits>k__BackingField:
     - <EnemyUnitId>k__BackingField: DUN-OBJ-MONSTER-A
-      <SpawnRate>k__BackingField: 0
+      <SpawnRate>k__BackingField: 50
     - <EnemyUnitId>k__BackingField: DUN-OBJ-MONSTER-B
-      <SpawnRate>k__BackingField: 100
+      <SpawnRate>k__BackingField: 50
   _coinSpawnRate:
     <DungeonObjectId>k__BackingField: DUN-OBJ-COIN
     <SpawnRate>k__BackingField: 10
