@@ -1,4 +1,5 @@
 using System.Collections;
+using SotongStudio.Bomber;
 using SotongStudio.Bomber.Gameplay.Bomb;
 using SotongStudio.Bomber.Gameplay.Character.DataService;
 using SotongStudio.Bomber.Gameplay.HUD;
@@ -33,24 +34,48 @@ public class PlayerBombView : MonoBehaviour
     [SerializeField] private GameObject _bombPrefab;
     [SerializeField] private Transform _bombPlacement;
 
+    [SerializeField] private Vector3 _bombOffset = new (0,0.5f,0);
+    private Vector3 _finalPosition;
+    [SerializeField] private float _distance = 0.5f;
+
     public UnityEvent OnBombDeployed;
 
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space) && _characterDataService.GetBombAmount() > 0)
         {
-            _characterDataUpdate.ReduceBombAmount(1);
-            _hudLogic.UpdateBomb();
-            PlaceBomb(transform.position);
-            StartCoroutine(BombCooldownCo());
+            if (!IsWallDetected())
+            {
+                _characterDataUpdate.ReduceBombAmount(1);
+                _hudLogic.UpdateBomb();
+                PlaceBomb();
+                StartCoroutine(BombCooldownCo());
+            }
         }
     }
 
-    private void PlaceBomb(Vector2 point)
+    public bool IsWallDetected()
     {
-        var finalPosition = WorldSnappingPos.SnapWorldPosition(point + (Vector2.up/2));
+        Vector2 origin = transform.position;
+        LayerMask layerMask = LayerMask.GetMask("Wall");
+
+        RaycastHit2D hit = Physics2D.Raycast(origin, _finalPosition, _distance, layerMask);
+
+        if (hit.collider != null)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    private void PlaceBomb()
+    {
+        _finalPosition = WorldSnappingPos.SnapWorldPosition(transform.position - _bombOffset);
         //_grid.GetNearestPointOnGrid(point);
-        var createdBomb = Instantiate(_bombPrefab, finalPosition, Quaternion.identity);
+        var createdBomb = Instantiate(_bombPrefab, _finalPosition + _bombOffset, Quaternion.identity);
         createdBomb.transform.parent = _bombPlacement;
     }
 

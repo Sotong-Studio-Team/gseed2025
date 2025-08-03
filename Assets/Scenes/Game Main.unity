@@ -4650,6 +4650,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bombPrefab: {fileID: 7201122331018779530, guid: 3d7b6e479972799438f3cef48d859398, type: 3}
   _bombPlacement: {fileID: 526096081}
+  _bombOffset: {x: 0, y: 0.5}
   OnBombDeployed:
     m_PersistentCalls:
       m_Calls: []
